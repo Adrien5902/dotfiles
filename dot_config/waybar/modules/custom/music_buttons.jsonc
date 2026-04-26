@@ -1,0 +1,14 @@
+{
+    "custom/prev": {
+        "format": "󰒮",
+        "on-click": "playerctl previous"
+    },
+    "custom/play": {
+        "format": "",
+        "on-click": "playerctl play-pause"
+    },
+    "custom/next": {
+        "format": "󰒭",
+        "on-click": "playerctl next"
+    }
+}

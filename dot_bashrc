@@ -1,0 +1,35 @@
+
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='\[\e[0;4;53m\]\u\[\e[0;2;4;53m\]@\[\e[0;1;4;53m\]\w\[\e[0;1;4;53m\]>\[\e[0m\]'
+
+alias we='thunar . >/dev/null 2>&1 & disown'
+alias rl='source ~/.bashrc'
+alias zen='flatpak run app.zen_browser.zen'
+alias epic='flatpak run com.heroicgameslauncher.hgl & disown'
+alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$PATH:/home/adrien/.spicetify
+
+export GITHUB_USERNAME=Adrien5902
+export EDITOR=nvim
+
+eval "$(starship init bash)"
+eval "$(zoxide init bash)"
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+test -r '/home/adrien/.opam/opam-init/init.sh' && . '/home/adrien/.opam/opam-init/init.sh' > /dev/null 2> /dev/null || true
+# END opam configuration

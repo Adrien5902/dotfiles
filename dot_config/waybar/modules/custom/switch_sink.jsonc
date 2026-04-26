@@ -1,0 +1,33 @@
+{
+    "custom/switch_sink": {
+        // "exec":
+        // "exec-if":
+        // "exec-on-event":
+        // "hide-empty-text":
+        // "return-type":
+        // "interval":
+        // "restart-interval":
+        // "signal":
+        "format": "",
+        // "format-icons":
+        // "rotate":
+        // "min-length":
+        // "max-length":
+        // "align":
+        // "justify":
+        "on-click": "~/.local/bin/switch-sink",
+        // "on-click-middle":
+        // "on-click-right":
+        // "on-update":
+        // "on-scroll-up":
+        // "on-scroll-down":
+        // "smooth-scrolling-threshold":
+        // "tooltip":
+        "tooltip-format": "Switch Audio Sink"
+        // "escape":
+        // "menu":
+        // "menu-file":
+        // "menu-actions":
+        // "expand":
+    }
+}
