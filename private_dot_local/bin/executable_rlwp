@@ -1,0 +1,18 @@
+#!/bin/bash
+pkill -f linux-wallpaperengine
+pkill waybar
+    
+linux-wallpaperengine \
+        --scaling stretch \
+        --screen-root DP-2 \
+        --bg $1 >/dev/null 2>&1 &
+    linux-wallpaperengine \
+        --scaling stretch \
+        --screen-root HDMI-A-2 \
+        --bg $2 >/dev/null 2>&1 &
+
+disown
+sleep 0.3
+
+waybar >/dev/null 2>&1 &
+disown

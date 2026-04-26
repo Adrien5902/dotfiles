@@ -1,0 +1,6 @@
+#!/bin/bash
+
+~/.cargo/bin/clipvault list \
+| rofi -dmenu -display-columns 2 \
+| ~/.cargo/bin/clipvault get \
+| wl-copy
