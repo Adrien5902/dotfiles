@@ -1,4 +1,4 @@
-# My Linux dotfiles
+# 🐧 My Linux dotfiles ⚙️
 Managed using [chezmoi](https://github.com/twpayne/chezmoi)
 
 Apps :
@@ -12,3 +12,6 @@ Other :
 - [~/.bashrc](./dot_bashrc)
 - [~/.gitconfig](./dot_gitconfig)
 - [Random binaries used in config](./private_dot_local/bin/)
+
+> Preview: 
+> ![preview](preview.png)
