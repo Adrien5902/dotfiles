@@ -1,0 +1,3 @@
+#!/bin/bash
+
+su adrien -c "XDG_RUNTIME_DIR=/run/user/$(id -u adrien) HYPRLAND_INSTANCE_SIGNATURE=$(ls /run/user/$(id -u adrien)/hypr/*/hyprland.lock | head -n1 | xargs dirname | xargs basename) $1"

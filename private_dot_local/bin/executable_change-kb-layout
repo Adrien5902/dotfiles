@@ -1,0 +1,3 @@
+hyprctl -q switchxkblayout logitech-g815-rgb-mechanical-gaming-keyboard next
+keymap=$(hyprctl devices -j | jq -r '.keyboards.[] | select(.name == "logitech-g815-rgb-mechanical-gaming-keyboard").active_keymap')
+notify-send "Keyboard layout : $keymap"
