@@ -3,11 +3,11 @@ pkill -f linux-wallpaperengine
 pkill waybar
     
 linux-wallpaperengine \
-        --scaling stretch \
+        --scaling fill \
         --screen-root DP-2 \
         --bg $1 >/dev/null 2>&1 &
     linux-wallpaperengine \
-        --scaling stretch \
+        --scaling fill \
         --screen-root HDMI-A-2 \
         --bg $2 >/dev/null 2>&1 &
 

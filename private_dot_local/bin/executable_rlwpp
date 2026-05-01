@@ -2,6 +2,7 @@
 
 export wallpaper_boygreen=3445801440
 export wallpaper_firefly=3687793845
+export wallpaper_stray=2850526399
 export wallpaper_cyberpunk=3241251648
 
-$HOME/.local/bin/rlwp $wallpaper_cyberpunk $wallpaper_firefly  
+$HOME/.local/bin/rlwp $wallpaper_cyberpunk $wallpaper_stray  
