@@ -12,6 +12,7 @@ Other :
 - [~/.bashrc](./dot_bashrc)
 - [~/.gitconfig](./dot_gitconfig)
 - [Random binaries used in config](./private_dot_local/bin/)
+- [Wallpaper](https://steamcommunity.com/sharedfiles/filedetails/?id=3241251648)
 
 > Preview: 
 > ![preview](preview.png)
