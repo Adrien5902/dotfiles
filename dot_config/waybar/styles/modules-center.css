@@ -1,123 +1,19 @@
-/*---------------
-    Indicator
----------------*/
-
-#keyboard-state label,
-#language {
-	margin-right: 12px;
-	color: @hover-fg;
+.modules-center {
+	margin-top: 4px;
+	margin-left: 4px;
 }
 
-/*-----------------
-    Temperature
------------------*/
+/*----------------
+    Power menu
+----------------*/
 
-#custom-left_div.2 {
-	color: @temperature;
+#custom-power {
+	padding: 3px;
+	margin-right: 2px;
+	margin-top: 4px;
 }
 
-#temperature {
-	background-color: @temperature;
-}
-
-/*------------
-    Memory
-------------*/
-
-#custom-left_div.3 {
-	background-color: @temperature;
-	color: @memory;
-}
-
-#memory {
-	background-color: @memory;
-}
-
-/*---------
-    CPU
----------*/
-
-#custom-left_div.4 {
-	background-color: @memory;
-	color: @cpu;
-}
-
-#cpu {
-	background-color: @cpu;
-}
-
-#custom-left_inv.1 {
-	color: @cpu;
-}
-
-/*-----------------
-    Distro icon
------------------*/
-
-#custom-left_div.5,
-#custom-right_div.2 {
-	color: @accent;
-}
-
-#custom-distro {
-	padding: 0 10px 0 5px;
-	background-color: @accent;
-	color: @main-bg;
-}
-
-/*--------------------
-    Idle inhibitor
---------------------*/
-
-#custom-right_inv.1 {
-	color: @time;
-}
-
-#idle_inhibitor {
-	background-color: @time;
-}
-
-/*----------
-    Time
-----------*/
-
-#clock.time {
-	padding: 0 12px;
-	background-color: @time;
-}
-
-#custom-right_div.3 {
-	background-color: @date;
-	color: @time;
-}
-
-/*----------
-    Date
-----------*/
-
-#custom-ycal {
-	padding-left: 6px;
-	background-color: @date;
-}
-
-#custom-ycal.has-events {}
-
-#custom-right_div.4 {
-	background-color: @tray;
-	color: @date;
-}
-
-/*-----------------
-    Music
------------------*/
-
-#custom-prev,
-#mpris,
-#custom-next {
-	background-color: @tray;
-	padding: 0 6px;
-}
-
-#custom-right_div.5 {
-	color: @tray;
+#custom-hyprland_workspace_0,
+#custom-hyprland_workspace_1 {
+	margin: 0 16px;
 }

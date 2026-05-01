@@ -2,8 +2,8 @@
 	"group/pulseaudio": {
 		"orientation": "horizontal",
 		"modules": [
-			"pulseaudio#output",
-			"pulseaudio#input"
+			"pulseaudio#output"
+			// "pulseaudio#input"
 		],
 		"drawer": {
 			// "transition-duration":

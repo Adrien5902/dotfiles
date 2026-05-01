@@ -1,24 +1,43 @@
-/*----------------
-    Workspaces
-----------------*/
-
-#custom-left_div.1,
-#custom-right_div.1 {
-	color: @workspaces;
-}
-#workspaces {
-	padding: 0 1px;
-	background-color: @workspaces;
-}
-#workspaces button.active label,
-#workspaces button.focused label {
-	color: @accent;
-}
-
 /*------------------
     Window title
 ------------------*/
 
 #window {
 	margin: 0 12px;
+}
+
+/*----------
+    Time
+----------*/
+
+#clock.time {
+	padding-left: 12px;
+	font-size: 24px;
+	font-family: "DS\-Digital";
+
+}
+
+
+/*-----------------
+    Temperature
+-----------------*/
+
+#temperature {
+	margin-left: 24px;
+}
+
+/*------------
+    Memory
+------------*/
+
+#memory {
+	margin-left: 24px;
+}
+
+/*---------
+    CPU
+---------*/
+
+#cpu {
+	margin-left: 24px;
 }

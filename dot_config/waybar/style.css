@@ -3,7 +3,6 @@
 * {
 	all: initial;
 	/* Reset GTK theme */
-	color: @main-fg;
 }
 
 @import "styles/fonts.css";
@@ -12,17 +11,15 @@
 @import "styles/modules-right.css";
 @import "styles/states.css";
 
-.module {
-	margin-bottom: -1px;
-}
-
 #waybar {
-	background-color: @outline;
+	background-color: transparent;
+	/* background-color: @outline; */
+	background-image: url("file:///home/adrien/.config/waybar/assets/background.png");
+	background-repeat: no-repeat;
 }
 
 #waybar>box {
 	padding: 4px;
-	background-color: transparent;
 }
 
 button {
@@ -31,15 +28,15 @@ button {
 	padding: 0 10px;
 }
 
-button:hover {
-	background-color: @hover-bg;
-	color: @hover-fg;
+tooltip {
+	border: 2px solid @ciel;
+	border-radius: 10px;
+	background-color: @marine;
 }
 
-tooltip {
-	border: 2px solid @main-br;
-	border-radius: 10px;
-	background-color: @main-bg;
+tooltip label {
+	color: @violet;
+	text-shadow: 1px 1px 4px @violet;
 }
 
 tooltip>box {

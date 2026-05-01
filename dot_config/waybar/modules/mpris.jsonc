@@ -53,8 +53,8 @@
 		// "truncate-hours":
 		// "ellipsis":
 		// "rotate":
-		// "min-length":
-		"max-length": 1000
+		"min-length": 49,
+		"max-length": 49
 		// "align":
 		// "justify":
 		// "expand":

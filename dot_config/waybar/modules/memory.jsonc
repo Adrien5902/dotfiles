@@ -1,17 +1,24 @@
 {
 	"memory": {
 		"interval": 10,
-		"format": "󰘚 {percentage}%",
-		"format-warning": "󰀧 {percentage}%",
-		"format-critical": "󰀧 {percentage}%",
+		"format": "󰘚  : {icon}",
+		"format-icons": [
+			"█ ▁ ▁ ▁ ▁",
+			"█ █ ▁ ▁ ▁",
+			"█ █ █ ▁ ▁",
+			"█ █ █ █ ▁",
+			"█ █ █ █ █"
+		],
+		"format-warning": "󰘚  {icon}",
+		"format-critical": "󰘚  {icon}",
+		"min-length": 14,
+		"max-length": 14,
 		// "format-icons":
 		// "rotate":
 		"states": {
 			"warning": 75,
 			"critical": 90
 		},
-		"min-length": 7,
-		"max-length": 7,
 		// "align":
 		// "justify":
 		// "on-click":

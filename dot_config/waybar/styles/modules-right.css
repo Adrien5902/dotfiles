@@ -3,68 +3,40 @@
 ----------------*/
 
 #mpris.songdetails {
-	padding: 0 12px;
+	margin-right: 1px;
+	margin-left: 24px;
 	background-color: unset;
+	font-weight: bold;
 }
 
 /*------------
     Volume
 ------------*/
 
-#custom-left_div.6 {
-	color: @volume;
+#custom-switch_sink {
+	padding-right: 6px;
 }
 
-#custom-switch_sink {
-	background-color: @volume;
+/*-----------
+    Music
+-----------*/
+#custom-prev,
+#mpris,
+#custom-next {
+	background-color: @tray;
 	padding: 0 6px;
 }
 
-#pulseaudio,
-#wireplumber {
-	background-color: @volume;
-}
-
 /*----------------
-    Brightness
+    Workspaces
 ----------------*/
 
-#custom-left_div.7 {
-	background-color: @volume;
-	color: @backlight;
+#workspaces {
+	padding: 0 1px;
+	background-color: @workspaces;
 }
 
-#backlight {
-	background-color: @backlight;
-}
-
-/*-------------
-    Battery
--------------*/
-
-#custom-left_div.8 {
-	background-color: @backlight;
-	color: @battery;
-}
-
-#battery {
-	background-color: @battery;
-}
-
-#custom-left_inv.2 {
-	color: @battery;
-}
-
-/*----------------
-    Power menu
-----------------*/
-
-#custom-power {
-	border-radius: 16px;
-	padding: 0 19px 0 16px;
+#workspaces button.active label,
+#workspaces button.focused label {
 	color: @accent;
-}
-
-#custom-power:hover {
-	background-color: @hover-bg;
 }

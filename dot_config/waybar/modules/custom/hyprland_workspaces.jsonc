@@ -1,0 +1,10 @@
+{
+    "custom/hyprland_workspace_0": {
+        "exec": "hyprctl monitors -j | jq .[0].activeWorkspace.id",
+        "interval": 0.5
+    },
+    "custom/hyprland_workspace_1": {
+        "exec": "hyprctl monitors -j | jq .[1].activeWorkspace.id",
+        "interval": 0.5
+    }
+}
