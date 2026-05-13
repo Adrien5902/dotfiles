@@ -1,0 +1,8 @@
+# /bin/bash
+
+choosen=$(dunstctl history | jq '.data.[0][] | [.id.data, .summary.data] | join(" ")' -r | rofi -dmenu) || exit 0
+id=$(echo $choosen | sed -nE "s/(\w+).+/\1/p")
+
+dunstctl history-pop $id
+sleep 5
+dunstctl close $id
