@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+ACTIVE=$(hyprctl activewindow -j)
+PID=$(echo $ACTIVE | jq .pid)
+
+CLIENT_NODE_ID=$(pw-dump | jq ".[] | select(.info.props.\"application.process.id\" == $PID) | .id" | head -n1) || exit 0
+STREAM_NODE_ID=$(pw-dump | jq ".[] | select(.info.props.\"client.id\" == $CLIENT_NODE_ID) | .id" | head -n1) || exit 0
+
+wpctl set-volume $STREAM_NODE_ID 5%$1
+
+VOL=$(wpctl get-volume $STREAM_NODE_ID | awk '{print int($2 * 100)}')
+APP_NAME=$(pw-dump | jq -r ".[] | select(.id == $CLIENT_NODE_ID) | .info.props.\"application.name\"")
+
+notify-send -a "$APP_NAME" "Volume : ${VOL}%" -h int:value:$VOL -h string:x-canonical-private-synchronous:volume
