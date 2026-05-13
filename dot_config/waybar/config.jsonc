@@ -8,8 +8,8 @@
 			// "~/.config/waybar/modules/extras/*.jsonc"
 		],
 		/*------------
-	    Layout
-	------------*/
+			Layout
+		------------*/
 		"modules-left": [
 			"clock#time",
 			"custom/ycal",

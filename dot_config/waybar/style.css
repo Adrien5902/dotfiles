@@ -28,17 +28,20 @@ button {
 	padding: 0 10px;
 }
 
+#tray menu,
 tooltip {
 	border: 2px solid @ciel;
 	border-radius: 10px;
 	background-color: @marine;
 }
 
+#tray menu menuitem,
 tooltip label {
 	color: @violet;
 	text-shadow: 1px 1px 4px @violet;
 }
 
+#tray menu,
 tooltip>box {
 	padding: 0 6px;
 }

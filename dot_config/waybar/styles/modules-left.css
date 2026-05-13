@@ -31,7 +31,7 @@
 ------------*/
 
 #memory {
-	margin-left: 24px;
+	margin-left: 12px;
 }
 
 /*---------
@@ -39,5 +39,14 @@
 ---------*/
 
 #cpu {
-	margin-left: 24px;
+	margin-left: 12px;
+}
+
+#tray {
+	margin-left: 12px;
+}
+
+#tray,
+#tray widget>image {
+	color: @lanterne;
 }
