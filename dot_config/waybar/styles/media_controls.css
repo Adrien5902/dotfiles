@@ -1,0 +1,27 @@
+#media_controls {
+    background-image: url("file:///home/adrien/.config/waybar/assets/media_controls.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0 16px;
+}
+
+#custom-switch_sink {
+    padding-right: 6px;
+}
+
+#custom-prev,
+#mpris,
+#custom-next {
+    background-color: @tray;
+    padding: 0 6px;
+}
+
+#workspaces {
+    padding: 0 1px;
+    background-color: @workspaces;
+}
+
+#workspaces button.active label,
+#workspaces button.focused label {
+    color: @accent;
+}

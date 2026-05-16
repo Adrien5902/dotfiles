@@ -6,20 +6,15 @@
 }
 
 @import "styles/fonts.css";
-@import "styles/modules-center.css";
-@import "styles/modules-left.css";
-@import "styles/modules-right.css";
+@import "styles/workspace_and_power.css";
+@import "styles/media_controls.css";
+@import "styles/song_details.css";
+@import "styles/date_time.css";
+@import "styles/specs.css";
 @import "styles/states.css";
 
-#waybar {
-	background-color: transparent;
-	/* background-color: @outline; */
-	background-image: url("file:///home/adrien/.config/waybar/assets/background.png");
-	background-repeat: no-repeat;
-}
-
 #waybar>box {
-	padding: 4px;
+	padding: 0 4px;
 }
 
 button {

@@ -11,28 +11,68 @@
 			Layout
 		------------*/
 		"modules-left": [
-			"clock#time",
-			"custom/ycal",
-			"temperature",
-			"memory",
-			"cpu"
+			"group/date_time"
 		],
 		"modules-center": [
-			"custom/hyprland_workspace_0",
-			"custom/power",
-			"custom/hyprland_workspace_1"
+			"group/specs"
+		],
+		"modules-right": [],
+		/*-------------
+			Options
+		-------------*/
+		// "expand-center":
+		// "expand-left":
+		// "expand-right":
+		"layer": "top",
+		"output": "HDMI-A-2",
+		// "position":
+		"height": 50,
+		"width": 0,
+		"margin": 0,
+		// "margin-top":
+		// "margin-left":
+		// "margin-bottom":
+		// "margin-right":
+		// "no-center":
+		"spacing": 0,
+		// "name":
+		"mode": "dock",
+		// "start_hidden":
+		// "modifier-reset":
+		// "exclusive":
+		// "fixed-center":
+		// "passthrough":
+		// "ipc":
+		// "id":
+		"reload_style_on_change": true
+		// "on-sigusr1":
+		// "on-sigusr2":
+	},
+	{
+		"include": [
+			"~/.config/waybar/modules/*.jsonc",
+			"~/.config/waybar/modules/custom/*.jsonc",
+			"~/.config/waybar/modules/hyprland/*.jsonc"
+			// Modules that are not included by default:
+			// "~/.config/waybar/modules/extras/*.jsonc"
+		],
+		/*------------
+			Layout
+		------------*/
+		"modules-left": [
+			"group/date_time",
+			"group/specs",
+		],
+		"modules-center": [
+			"group/workspaces_and_power",
 		],
 		"modules-right": [
-			"custom/switch_sink",
-			"group/pulseaudio",
-			"custom/prev",
-			"mpris#playpause",
-			"custom/next",
+			"group/media_controls",
 			"mpris#songdetails"
 		],
 		/*-------------
-	    Options
-	-------------*/
+			Options
+		-------------*/
 		// "expand-center":
 		// "expand-left":
 		// "expand-right":

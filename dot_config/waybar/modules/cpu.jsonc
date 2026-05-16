@@ -19,8 +19,8 @@
 		"states": {
 			"warning": 75,
 			"critical": 90
-		}
-		// "on-click":
+		},
+		"on-click": "kitty -e htop"
 		// "on-click-middle":
 		// "on-click-right":
 		// "on-update":

@@ -1,0 +1,17 @@
+#custom-power {
+	margin-right: 12px;
+	margin-left: 4px;
+	margin-top: 6px;
+}
+
+#custom-hyprland_workspace_0,
+#custom-hyprland_workspace_1 {
+	padding: 0px 12px;
+}
+
+#workspaces_and_power {
+	padding: 0px 30px;
+	background-image: url("file:///home/adrien/.config/waybar/assets/workspaces_and_power.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}

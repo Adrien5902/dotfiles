@@ -1,0 +1,7 @@
+#mpris.songdetails {
+	font-weight: bold;
+	background-image: url("file:///home/adrien/.config/waybar/assets/song_details.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 0 18px;
+}
