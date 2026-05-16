@@ -74,3 +74,12 @@ vim.api.nvim_set_hl(0, "LineNr1", { fg = "#bdbdbd" })
 vim.api.nvim_set_hl(0, "LineNr2", { fg = "#9c9c9c" })
 vim.api.nvim_set_hl(0, "LineNr3", { fg = "#7b7b7b" })
 vim.api.nvim_set_hl(0, "LineNr4", { fg = "#5a5a5a" })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "netrw",
+  callback = function()
+    local opts = { buffer = true, remap = true }
+    vim.keymap.set("n", "l", "<Plug>NetrwLocalBrowseCheck", opts)
+    vim.keymap.set("n", "h", "-", opts)
+  end,
+})
