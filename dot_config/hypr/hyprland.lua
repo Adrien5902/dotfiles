@@ -307,9 +307,9 @@ local directions = {
     down  = "d",
 
     h     = "l",
-    l     = "r",
-    k     = "u",
     j     = "d",
+    k     = "u",
+    l     = "r",
 }
 
 -- Focus windows
@@ -325,6 +325,28 @@ for key, dir in pairs(directions) do
     hl.bind(
         mainMod .. "SHIFT + " .. key,
         hl.dsp.window.move({ direction = dir })
+    )
+end
+
+-- Resize windows
+for key, dir in pairs(directions) do
+    local x = 0
+    local y = 0
+    local amount = 100
+
+    if dir == "l" then
+        x = x - amount
+    elseif dir == "d" then
+        y = y + amount
+    elseif dir == "u" then
+        y = y - amount
+    elseif dir == "r" then
+        x = x + amount
+    end
+
+    hl.bind(
+        mainMod .. "ALT + " .. key,
+        hl.dsp.window.resize({ x = x, y = y, relative = true })
     )
 end
 
