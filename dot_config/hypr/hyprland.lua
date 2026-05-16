@@ -55,7 +55,7 @@ local cargobin = "$HOME/.cargo/bin"
 -- Or execute your favorite apps at launch like this:
 hl.on("hyprland.start", function()
     hl.dsp.exec_cmd("sudo keyd")
-    hl.dsp.exec_cmd("ocalbin/rlwpp")
+    hl.dsp.exec_cmd("sleep 1; " .. localbin .. "/rlwpp")
     hl.dsp.exec_cmd("cd ~/uhu-wattou && " .. cargobin .. "/uhu-wattou")
     hl.dsp.exec_cmd("python ~/waybar-ycal/popup.py & disown")
     hl.dsp.exec_cmd("wl-paste --watch clipvault store")
@@ -285,8 +285,8 @@ hl.bind(mainMod .. "V", hl.dsp.exec_cmd("code"))
 hl.bind(mainMod .. "O", hl.dsp.exec_cmd(obsidian))
 hl.bind(mainMod .. "F", hl.dsp.window.float())
 hl.bind(mainMod .. "TAB", hl.dsp.window.fullscreen())
-hl.bind(mainMod .. "mouse:274", hl.dsp.window.kill())
-hl.bind(mainMod .. "C", hl.dsp.window.kill())
+hl.bind(mainMod .. "mouse:274", hl.dsp.window.close())
+hl.bind(mainMod .. "C", hl.dsp.window.close())
 
 --ROFI
 hl.bind(mainMod .. "R", hl.dsp.exec_cmd("rofi -show run"))
