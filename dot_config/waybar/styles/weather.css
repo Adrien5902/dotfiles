@@ -1,0 +1,6 @@
+#custom-weather {
+    background-image: url("file:///home/adrien/.config/waybar/assets/media_controls.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0 60px;
+}

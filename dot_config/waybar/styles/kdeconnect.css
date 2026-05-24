@@ -1,0 +1,16 @@
+#custom-kdeconnect {
+    background-image: url("file:///home/adrien/.config/waybar/assets/phone_status.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0 12px;
+}
+
+#custom-kdeconnect-notifications {
+    background-image: url("file:///home/adrien/.config/waybar/assets/notification.png");
+    background-position: 0 center;
+    background-repeat: repeat-x;
+}
+
+#group-kdeconnect {
+    margin: 8px;
+}

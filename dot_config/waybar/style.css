@@ -11,6 +11,8 @@
 @import "styles/song_details.css";
 @import "styles/date_time.css";
 @import "styles/specs.css";
+@import "styles/kdeconnect.css";
+@import "styles/weather.css";
 @import "styles/states.css";
 
 #waybar>box {

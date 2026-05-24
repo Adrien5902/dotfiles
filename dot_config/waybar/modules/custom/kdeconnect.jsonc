@@ -1,0 +1,21 @@
+{
+    "custom/kdeconnect": {
+        "format": "{}",
+        "exec": "kdeconnect_waybar",
+        "return-type": "json",
+        "on-click": ""
+    },
+    "custom/kdeconnect-notifications": {
+        "format": "{}",
+        "exec": "kdeconnect_waybar -c notifications",
+        "return-type": "json",
+        "on-click": ""
+    },
+    "group/kdeconnect": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/kdeconnect",
+            "custom/kdeconnect-notifications"
+        ]
+    }
+}
