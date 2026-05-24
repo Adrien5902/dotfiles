@@ -53,14 +53,17 @@ local cargobin = "$HOME/.cargo/bin"
 
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
-hl.on("hyprland.start", function()
-    hl.dsp.exec_cmd("sudo keyd")
-    hl.dsp.exec_cmd("sleep 1; " .. localbin .. "/rlwpp")
-    hl.dsp.exec_cmd("cd ~/uhu-wattou && " .. cargobin .. "/uhu-wattou")
-    hl.dsp.exec_cmd("python ~/waybar-ycal/popup.py & disown")
-    hl.dsp.exec_cmd("wl-paste --watch clipvault store")
-    hl.dsp.exec_cmd("xrandr --output DP-2 --primary")
-end)
+function start()
+    hl.exec_cmd("sudo keyd")
+    hl.exec_cmd(localbin .. "/rlwpp")
+    hl.exec_cmd("cd ~/projects/uhu-wattou && " .. cargobin .. "/uhu-wattou")
+    hl.exec_cmd("wl-paste --watch clipvault store")
+    hl.exec_cmd("xrandr --output DP-2 --primary")
+    hl.exec_cmd("kdeconnectd")
+    hl.exec_cmd("hypridle")
+end
+
+hl.on("hyprland.start", start)
 
 ----------------------------------------------------------
 ------ ENVIRONMENT VARIABLES ------
@@ -114,6 +117,20 @@ hl.config({
         layout           = "dwindle",
     },
 
+    dwindle = {
+        force_split                  = 0,
+        preserve_split               = false,
+        smart_split                  = true,
+        smart_resizing               = true,
+        permanent_direction_override = false,
+        special_scale_factor         = 1,
+        split_width_multiplier       = 1.0,
+        use_active_for_splits        = true,
+        default_split_ratio          = 1.0,
+        split_bias                   = 0,
+        precise_mouse_move           = false,
+    },
+
     decoration = {
         rounding         = 10,
         rounding_power   = 2,
@@ -131,8 +148,8 @@ hl.config({
 
         blur             = {
             enabled  = true,
-            size     = 3,
-            passes   = 1,
+            size     = 2,
+            passes   = 3,
             vibrancy = 0.1696,
         },
     },
@@ -287,6 +304,7 @@ hl.bind(mainMod .. "F", hl.dsp.window.float())
 hl.bind(mainMod .. "TAB", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. "mouse:274", hl.dsp.window.close())
 hl.bind(mainMod .. "C", hl.dsp.window.close())
+hl.bind(mainMod .. "SHIFT+R", start)
 
 --ROFI
 hl.bind(mainMod .. "R", hl.dsp.exec_cmd("rofi -show run"))
