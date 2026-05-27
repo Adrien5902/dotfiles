@@ -1,0 +1,76 @@
+{
+	"$schema": "./config.schema.json",
+	"configs": [
+		{
+			"update_interval_secs": 1,
+			"format": "{DeviceInfo::DeviceTypeText}         {Battery::ChargePercent}% {Battery::ChargeTexts}",
+			"device_not_found_text": "",
+			"device_not_found_tooltip_text": "Device not found make sure kdeconnect is running and phone is connected",
+			"device_phone_text": "",
+			"device_tablet_text": "",
+			"is_charging_texts": [
+				"󰢜",
+				"󰂆",
+				"󰂇",
+				"󰂈",
+				"󰢝",
+				"󰂉",
+				"󰢞",
+				"󰂊",
+				"󰂋",
+				"󰂅"
+			],
+			"isnt_charging_texts": [
+				"󰁺",
+				"󰁻",
+				"󰁼",
+				"󰁽",
+				"󰁾",
+				"󰁿",
+				"󰂀",
+				"󰂁",
+				"󰂂",
+				"󰁹"
+			],
+			"charge_ranges": [
+				10,
+				20,
+				30,
+				40,
+				50,
+				60,
+				70,
+				80,
+				90
+			]
+		},
+		{
+			"update_interval_secs": 1,
+			"name": "notifications",
+			"format": "{Notification::Grouped}",
+			"tooltip_format": "{Notification::Single}",
+			"notification_grouped_format": "\u2007{CustomIcon} {CountText}\u2007",
+			"notification_single_format": "  -{CustomIcon} : {Title}\n{Content}\n",
+			"app_icons": {
+				"": "",
+				"Instagram": "",
+				"Snapchat": "",
+				"YouTube": "󰗃",
+				"WhatsApp": "",
+				"Discord": ""
+			},
+			"notifications_count_text": {
+				"1": "󰲠",
+				"2": "󰲢",
+				"3": "󰲤",
+				"4": "󰲦",
+				"5": "󰲨",
+				"6": "󰲪",
+				"7": "󰲬",
+				"8": "󰲮",
+				"9": "󰲰",
+				"0": "󰲲"
+			}
+		}
+	]
+}
