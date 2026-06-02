@@ -57,7 +57,19 @@
 				"Snapchat": "",
 				"YouTube": "󰗃",
 				"WhatsApp": "",
-				"Discord": ""
+				"Discord": "",
+				"Messages": "",
+				"Calendar": "󰃭",
+				"GitHub": "󰊤",
+				"Netflix": "󰝆",
+				"X": "",
+				"Steam": "",
+				"Reddit": "",
+				"Twitch": "",
+				"Pronote": "",
+				"Spotify": "",
+				"Tasks": "",
+				"Gmail": "󰊫"
 			},
 			"notifications_count_text": {
 				"1": "󰲠",
