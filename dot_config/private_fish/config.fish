@@ -25,6 +25,8 @@ alias grep="rg"
 
 fish_add_path ~/.local/bin
 fish_add_path ~/.cargo/bin
+fish_add_path ~/.spicetify
+fish_add_path ~/go/bin
 
 # BEGIN opam configuration
 # This is useful if you're using opam as it adds:
