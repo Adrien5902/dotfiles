@@ -8,6 +8,7 @@ Apps :
 - Search bar: [rofi](https://github.com/davatorium/rofi) ([dotfiles](./dot_config/rofi/config.rasi), [themes](./private_dot_local/private_share/rofi/themes/))
 - Desktop Bar: [Waybar](https://github.com/alexays/waybar) ([dotfiles](./dot_config/waybar/))
 - Notification Manager: [dunst](https://github.com/dunst-project/dunst) ([dotfiles](./dot_config/dunst/dunstrc))
+- File Manager: [Thunar](https://www.xfce.org/) ([dofiles](./dot_config/private_Thunar/))
 
 Other :
 - [~/.gitconfig](./dot_gitconfig)

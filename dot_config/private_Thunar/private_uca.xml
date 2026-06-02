@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<submenu></submenu>
+	<unique-id>1776530120035002-1</unique-id>
+	<command>kitty -d %f</command>
+	<description>Example for a custom action</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>visual-studio-code</icon>
+	<name>Open in VSCode</name>
+	<submenu></submenu>
+	<unique-id>1778236827074143-1</unique-id>
+	<command>code %f</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>nvim</icon>
+	<name>Open in nvim</name>
+	<submenu></submenu>
+	<unique-id>1778236957375731-2</unique-id>
+	<command>kitty --hold sh -c &quot;nvim %f&quot;</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>edit-copy</icon>
+	<name>Copy contents</name>
+	<submenu></submenu>
+	<unique-id>1780074861622436-1</unique-id>
+	<command>cat %f | wl-copy</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<other-files/>
+	<text-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>copy path</name>
+	<submenu></submenu>
+	<unique-id>1780266834287396-1</unique-id>
+	<command>wl-copy %f</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+</actions>
