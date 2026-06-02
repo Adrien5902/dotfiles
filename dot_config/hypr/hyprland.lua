@@ -43,7 +43,7 @@ local discord = "discord"
 local spotify = "spotify-launcher"
 local obsidian = "flatpak run md.obsidian.Obsidian"
 
-local localbin = "$HOME/.local/bin"
+local local_bin = "$HOME/.local/bin"
 local cargobin = "$HOME/.cargo/bin"
 
 
@@ -55,29 +55,30 @@ local cargobin = "$HOME/.cargo/bin"
 -- Or execute your favorite apps at launch like this:
 function start()
     hl.exec_cmd("sudo keyd")
-    hl.exec_cmd(localbin .. "/rlwpp")
+    hl.exec_cmd(local_bin .. "/rlwpp")
     hl.exec_cmd("cd ~/projects/uhu-wattou && " .. cargobin .. "/uhu-wattou")
     hl.exec_cmd("wl-paste --watch clipvault store")
     hl.exec_cmd("xrandr --output DP-2 --primary")
     hl.exec_cmd("kdeconnectd")
     hl.exec_cmd("hypridle")
+    hl.exec_cmd("steam -silent")
 end
 
 hl.on("hyprland.start", start)
 
-----------------------------------------------------------
+-----------------------------------
 ------ ENVIRONMENT VARIABLES ------
-----------------------------------------------------------
+-----------------------------------
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
-hl.env("XCURSOR_SIZE", 24)
+hl.env("HYPRCURSOR_THEME", "MikuCat")
 hl.env("HYPRCURSOR_SIZE", 24)
 
 
---------------------------------------
+-------------------------
 ------ PERMISSIONS ------
---------------------------------------
+-------------------------
 
 -- See https://wiki.hypr.land/Configuring/Permissions/
 -- Please note permission changes here require a Hyprland restart and are not applied on-the-fly
@@ -99,7 +100,7 @@ hl.env("HYPRCURSOR_SIZE", 24)
 hl.config({
     general = {
         gaps_in          = 5,
-        gaps_out         = 20,
+        gaps_out         = 10,
 
         border_size      = 2,
 
@@ -192,16 +193,16 @@ hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" 
 -- uncomment all if you wish to use that.
 
 -- Odd = primary, Even = secondary
-hl.workspace_rule({ workspace = 1, monitor = "DP-2", default = true })
-hl.workspace_rule({ workspace = 3, monitor = "DP-2" })
-hl.workspace_rule({ workspace = 5, monitor = "DP-2" })
-hl.workspace_rule({ workspace = 7, monitor = "DP-2" })
-hl.workspace_rule({ workspace = 9, monitor = "DP-2" })
-hl.workspace_rule({ workspace = 2, monitor = "HDMI-A-2", default = true })
-hl.workspace_rule({ workspace = 4, monitor = "HDMI-A-2" })
-hl.workspace_rule({ workspace = 6, monitor = "HDMI-A-2" })
-hl.workspace_rule({ workspace = 8, monitor = "HDMI-A-2" })
-hl.workspace_rule({ workspace = 10, monitor = "HDMI-A-2" })
+hl.workspace_rule({ workspace = "1", monitor = "DP-2", default = true })
+hl.workspace_rule({ workspace = "3", monitor = "DP-2" })
+hl.workspace_rule({ workspace = "5", monitor = "DP-2" })
+hl.workspace_rule({ workspace = "7", monitor = "DP-2" })
+hl.workspace_rule({ workspace = "9", monitor = "DP-2" })
+hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-2", default = true })
+hl.workspace_rule({ workspace = "4", monitor = "HDMI-A-2" })
+hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-2" })
+hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-2" })
+hl.workspace_rule({ workspace = "10", monitor = "HDMI-A-2" })
 
 -- workspace = w[tv1], gapsout:0, gapsin:0
 -- workspace = f[1], gapsout:0, gapsin:0
@@ -283,40 +284,55 @@ hl.device({
 ------ KEYBINDINGS ------
 -------------------------
 
-local mainMod = "SUPER + "
+local main_mod = "SUPER + "
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Binds/ for more
+-- Apps
+hl.bind(main_mod .. "Q", hl.dsp.exec_cmd(terminal))
+hl.bind(main_mod .. "A", hl.dsp.exec_cmd(browser))
+hl.bind(main_mod .. "S", hl.dsp.exec_cmd(spotify))
+hl.bind(main_mod .. "S", hl.dsp.focus({ window = "class:Spotify" }))
+hl.bind(main_mod .. "D", hl.dsp.exec_cmd(discord))
+hl.bind(main_mod .. "D", hl.dsp.focus({ window = "class:discord" }))
+hl.bind(main_mod .. "SHIFT+A", hl.dsp.exec_cmd("steam"))
+hl.bind(main_mod .. "SHIFT+A", hl.dsp.focus({ window = "class:steam" }))
+hl.bind(main_mod .. "E", hl.dsp.exec_cmd(fileManager))
+hl.bind(main_mod .. "V", hl.dsp.exec_cmd("code"))
+hl.bind(main_mod .. "O", hl.dsp.exec_cmd(obsidian))
 
-hl.bind(mainMod .. "Q", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. "A", hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. "SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
+-- Screen copy
+hl.bind(main_mod .. "M", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
 hl.bind("Print", hl.dsp.exec_cmd("grim -o \"DP-2\" - | wl-copy"))
-hl.bind(mainMod .. "SHIFT + O", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | tesseract - - | wl-copy"))
-hl.bind(mainMod .. "M", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
-hl.bind(mainMod .. "S", hl.dsp.exec_cmd(spotify))
-hl.bind(mainMod .. "S", hl.dsp.focus({ window = "class:Spotify" }))
-hl.bind(mainMod .. "D", hl.dsp.exec_cmd(discord))
-hl.bind(mainMod .. "D", hl.dsp.focus({ window = "class:discord" }))
-hl.bind(mainMod .. "E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. "V", hl.dsp.exec_cmd("code"))
-hl.bind(mainMod .. "O", hl.dsp.exec_cmd(obsidian))
-hl.bind(mainMod .. "F", hl.dsp.window.float())
-hl.bind(mainMod .. "TAB", hl.dsp.window.fullscreen())
-hl.bind(mainMod .. "mouse:274", hl.dsp.window.close())
-hl.bind(mainMod .. "C", hl.dsp.window.close())
-hl.bind(mainMod .. "SHIFT+R", start)
+hl.bind(main_mod .. "SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
+hl.bind(main_mod .. "SHIFT + O", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | tesseract - - | wl-copy"))
+
+-- HL Stuff
+hl.bind(main_mod .. "F", hl.dsp.window.float())
+hl.bind(main_mod .. "TAB", hl.dsp.window.fullscreen())
+hl.bind(main_mod .. "mouse:274", hl.dsp.window.close())
+hl.bind(main_mod .. "C", hl.dsp.window.close())
+hl.bind(main_mod .. "SHIFT+R", start)
+hl.bind(main_mod .. "SHIFT+T", hl.dsp.exec_cmd(local_bin .. "/toggle-mute-notif"))
+
+-- Phone mirror
+hl.bind(main_mod .. "P", hl.dsp.exec_cmd(local_bin .. "/phone-camera 1"))
+hl.bind(main_mod .. "ALT+P", hl.dsp.exec_cmd(local_bin .. "/phone-camera 2"))
 
 --ROFI
-hl.bind(mainMod .. "R", hl.dsp.exec_cmd("rofi -show run"))
-hl.bind(mainMod .. "SPACE",
+hl.bind(main_mod .. "R", hl.dsp.exec_cmd("rofi -show run"))
+hl.bind(main_mod .. "SPACE",
     hl.dsp.exec_cmd(
         "rofi -modi games -combi-modi \"drun,games\" -show-icons -combi-display-format \"{text}\" -show combi"))
-hl.bind(mainMod .. "SEMICOLON", hl.dsp.exec_cmd(localbin .. "/clipmenu"))
-hl.bind(mainMod .. "SHIFT + C", hl.dsp.exec_cmd("rofi -show calc -modi calc -no-sort"))
-hl.bind(mainMod .. "SHIFT + E", hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
-hl.bind(mainMod .. "SHIFT + P",
-    hl.dsp.exec_cmd("rofi -show power-menu -modi power-menu:" .. localbin .. "/rofi-power-menu"))
-hl.bind(mainMod .. "SHIFT + D", hl.dsp.exec_cmd(localbin .. "/dmenudunsthistory"))
+hl.bind(main_mod .. "SEMICOLON", hl.dsp.exec_cmd(local_bin .. "/clipmenu"))
+hl.bind(main_mod .. "SHIFT + C", hl.dsp.exec_cmd("rofi -show calc -modi calc -no-sort"))
+hl.bind(main_mod .. "SHIFT + E", hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
+hl.bind(main_mod .. "SHIFT + P",
+    hl.dsp.exec_cmd("rofi -show power-menu -modi power-menu:" .. local_bin .. "/rofi-power-menu"))
+hl.bind(main_mod .. "SHIFT + D", hl.dsp.exec_cmd(local_bin .. "/dmenudunsthistory"))
+
+-------------------------
+--- WINDOW MANAGEMENT ---
+-------------------------
 
 local directions = {
     left  = "l",
@@ -333,7 +349,7 @@ local directions = {
 -- Focus windows
 for key, dir in pairs(directions) do
     hl.bind(
-        mainMod .. key,
+        main_mod .. key,
         hl.dsp.focus({ direction = dir })
     )
 end
@@ -341,7 +357,7 @@ end
 -- Move windows
 for key, dir in pairs(directions) do
     hl.bind(
-        mainMod .. "SHIFT + " .. key,
+        main_mod .. "SHIFT + " .. key,
         hl.dsp.window.move({ direction = dir })
     )
 end
@@ -363,11 +379,10 @@ for key, dir in pairs(directions) do
     end
 
     hl.bind(
-        mainMod .. "ALT + " .. key,
+        main_mod .. "ALT + " .. key,
         hl.dsp.window.resize({ x = x, y = y, relative = true })
     )
 end
-
 
 local azerty_keys = {
     "ampersand",  -- 1
@@ -382,31 +397,17 @@ local azerty_keys = {
     "agrave",     -- 10
 }
 
--- Focus workspace
+-- Azerty keys
 for i, key in ipairs(azerty_keys) do
+    -- Move
     hl.bind(
-        mainMod .. key,
+        main_mod .. key,
         hl.dsp.focus({ workspace = i })
     )
-end
 
--- Focus workspace with numpad
-for i = 1, 9 do
+    -- Focus
     hl.bind(
-        mainMod .. "KP_" .. i,
-        hl.dsp.focus({ workspace = i })
-    )
-end
-
-hl.bind(
-    mainMod .. "KP_0",
-    hl.dsp.focus({ workspace = 10 })
-)
-
--- Move window to workspace
-for i, key in ipairs(azerty_keys) do
-    hl.bind(
-        mainMod .. "SHIFT + " .. key,
+        main_mod .. "SHIFT + " .. key,
         hl.dsp.window.move({
             workspace = i,
             follow = false,
@@ -414,36 +415,35 @@ for i, key in ipairs(azerty_keys) do
     )
 end
 
--- Move window with numpad
-for i = 1, 9 do
+-- Numpad keys
+for i = 1, 10 do
+    -- Focus
     hl.bind(
-        mainMod .. "SHIFT + KP_" .. i,
+        main_mod .. "KP_" .. i % 10,
+        hl.dsp.focus({ workspace = i })
+    )
+
+    -- Move
+    hl.bind(
+        main_mod .. "SHIFT + KP_" .. i % 10,
         hl.dsp.window.move({
             workspace = i,
             follow = false,
         })
     )
 end
-
-hl.bind(
-    mainMod .. "SHIFT + KP_0",
-    hl.dsp.window.move({
-        workspace = 10,
-        follow = false,
-    })
-)
 
 -- Example special workspace (scratchpad)
 -- bind = SUPER, S, togglespecialworkspace, magic
 -- bind = SUPER SHIFT, S, movetoworkspace, special:magic
 
 -- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(main_mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(main_mod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
@@ -455,8 +455,8 @@ hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ to
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
     { locked = true, repeating = true })
 
-hl.bind("SUPER + XF86AudioRaiseVolume", hl.dsp.exec_cmd(localbin .. "/appvolume +"), { locked = true })
-hl.bind("SUPER + XF86AudioLowerVolume", hl.dsp.exec_cmd(localbin .. "/appvolume -"), { locked = true })
+hl.bind("SUPER + XF86AudioRaiseVolume", hl.dsp.exec_cmd(local_bin .. "/appvolume +"), { locked = true })
+hl.bind("SUPER + XF86AudioLowerVolume", hl.dsp.exec_cmd(local_bin .. "/appvolume -"), { locked = true })
 
 -- Requires playerctl
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
@@ -492,8 +492,8 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 
 hl.window_rule({
     -- Fix some dragging issues with XWayland
-    name     = "fix-xwayland-drags",
-    match    = {
+    name  = "fix-xwayland-drags",
+    match = {
         class      = "^$",
         title      = "^$",
         xwayland   = true,
@@ -501,6 +501,7 @@ hl.window_rule({
         fullscreen = false,
         pin        = false,
     },
+
 
     no_focus = true,
 })
@@ -512,6 +513,12 @@ hl.window_rule({
 
     move  = "20 monitor_h-120",
     float = true,
+})
+
+hl.layer_rule({
+    match        = { namespace = "rofi" },
+    blur         = true,
+    ignore_alpha = 0.5,
 })
 
 hl.layer_rule({
