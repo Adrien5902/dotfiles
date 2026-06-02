@@ -1,7 +1,8 @@
 Custom cyberpunk-like style waybar
 
 > Preview :
-> ![preview](./assets/preview.png)
+> ![preview](./../../assets/waybar_preview.png)
+
 
 Includes:
 - 🕔 Time/Date

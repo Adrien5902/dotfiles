@@ -15,4 +15,4 @@ Other :
 - [Wallpaper](https://steamcommunity.com/sharedfiles/filedetails/?id=3241251648)
 
 > Preview: 
-> ![preview](preview.png)
+> ![preview](./assets/preview.png)
