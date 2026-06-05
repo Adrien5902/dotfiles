@@ -9,25 +9,37 @@
 -- Create your files separately and then link them to this file like this:
 -- source = ~/.config/hypr/myColors.conf
 
+local hostname = io.popen("uname -n"):read("*l")
+local is_laptop = hostname == "unowhynotarch"
+local is_desktop = hostname == "archrien"
 
 ----------------------
 ------ MONITORS ------
 ----------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
-hl.monitor({
-    output = "DP-2",
-    mode = "1920x1080@165",
-    position = "0x0",
-    scale = 1
-})
-hl.monitor({
-    output = "HDMI-A-2",
-    mode = "1920x1080@144",
-    position = "-1080x-800",
-    scale = 1,
-    transform = 3,
-})
+
+if is_laptop then
+	hl.monitor({
+		output = "eDP-1",
+		mode = "1920x1080@60",
+		scale = 1.2,
+	})
+elseif is_desktop then
+	hl.monitor({
+		output = "DP-2",
+		mode = "1920x1080@165",
+		position = "0x0",
+		scale = 1
+	})
+	hl.monitor({
+		output = "HDMI-A-2",
+		mode = "1920x1080@144",
+		position = "-1080x-800",
+		scale = 1,
+		transform = 3,
+	})
+end
 
 -------------------------
 ------ MY PROGRAMS ------
@@ -54,14 +66,14 @@ local cargobin = "$HOME/.cargo/bin"
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 function start()
-    hl.exec_cmd("sudo keyd")
-    hl.exec_cmd(local_bin .. "/rlwpp")
-    hl.exec_cmd("cd ~/projects/uhu-wattou && " .. cargobin .. "/uhu-wattou")
-    hl.exec_cmd("wl-paste --watch clipvault store")
-    hl.exec_cmd("xrandr --output DP-2 --primary")
-    hl.exec_cmd("kdeconnectd")
-    hl.exec_cmd("hypridle")
-    hl.exec_cmd("steam -silent")
+	hl.exec_cmd("sudo keyd")
+	hl.exec_cmd(local_bin .. "/rlwpp")
+	hl.exec_cmd("cd ~/projects/uhu-wattou && " .. cargobin .. "/uhu-wattou")
+	hl.exec_cmd("wl-paste --watch clipvault store")
+	hl.exec_cmd("xrandr --output DP-2 --primary")
+	hl.exec_cmd("kdeconnectd")
+	hl.exec_cmd("hypridle")
+	hl.exec_cmd("steam -silent")
 end
 
 hl.on("hyprland.start", start)
@@ -98,66 +110,66 @@ hl.env("HYPRCURSOR_SIZE", 24)
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
-    general = {
-        gaps_in          = 5,
-        gaps_out         = 10,
+	general = {
+		gaps_in          = 5,
+		gaps_out         = 10,
 
-        border_size      = 2,
+		border_size      = 2,
 
-        col              = {
-            active_border   = { colors = { "rgba(67C9FFee)", "rgba(EFB4FFee)" }, angle = 45 },
-            inactive_border = "rgba(595959ee)",
-        },
+		col              = {
+			active_border   = { colors = { "rgba(67C9FFee)", "rgba(EFB4FFee)" }, angle = 45 },
+			inactive_border = "rgba(595959ee)",
+		},
 
-        -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
-        resize_on_border = false,
+		-- Set to true to enable resizing windows by clicking and dragging on borders and gaps
+		resize_on_border = false,
 
-        -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
-        allow_tearing    = false,
+		-- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
+		allow_tearing    = false,
 
-        layout           = "dwindle",
-    },
+		layout           = "dwindle",
+	},
 
-    dwindle = {
-        force_split                  = 0,
-        preserve_split               = false,
-        smart_split                  = true,
-        smart_resizing               = true,
-        permanent_direction_override = false,
-        special_scale_factor         = 1,
-        split_width_multiplier       = 1.0,
-        use_active_for_splits        = true,
-        default_split_ratio          = 1.0,
-        split_bias                   = 0,
-        precise_mouse_move           = false,
-    },
+	dwindle = {
+		force_split                  = 0,
+		preserve_split               = false,
+		smart_split                  = true,
+		smart_resizing               = true,
+		permanent_direction_override = false,
+		special_scale_factor         = 1,
+		split_width_multiplier       = 1.0,
+		use_active_for_splits        = true,
+		default_split_ratio          = 1.0,
+		split_bias                   = 0,
+		precise_mouse_move           = false,
+	},
 
-    decoration = {
-        rounding         = 10,
-        rounding_power   = 2,
+	decoration = {
+		rounding         = 10,
+		rounding_power   = 2,
 
-        -- Change transparency of focused and unfocused windows
-        active_opacity   = 1.0,
-        inactive_opacity = 1.0,
+		-- Change transparency of focused and unfocused windows
+		active_opacity   = 1.0,
+		inactive_opacity = 1.0,
 
-        shadow           = {
-            enabled      = true,
-            range        = 4,
-            render_power = 3,
-            color        = 0xee1a1a1a,
-        },
+		shadow           = {
+			enabled      = true,
+			range        = 4,
+			render_power = 3,
+			color        = 0xee1a1a1a,
+		},
 
-        blur             = {
-            enabled  = true,
-            size     = 2,
-            passes   = 3,
-            vibrancy = 0.1696,
-        },
-    },
+		blur             = {
+			enabled  = true,
+			size     = 2,
+			passes   = 3,
+			vibrancy = 0.1696,
+		},
+	},
 
-    animations = {
-        enabled = true,
-    },
+	animations = {
+		enabled = true,
+	},
 })
 
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
@@ -191,18 +203,21 @@ hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" 
 -- Ref https://wiki.hypr.land/Configuring/Workspace-Rules/
 -- "Smart gaps" / "No gaps when only"
 -- uncomment all if you wish to use that.
-
--- Odd = primary, Even = secondary
-hl.workspace_rule({ workspace = "1", monitor = "DP-2", default = true })
-hl.workspace_rule({ workspace = "3", monitor = "DP-2" })
-hl.workspace_rule({ workspace = "5", monitor = "DP-2" })
-hl.workspace_rule({ workspace = "7", monitor = "DP-2" })
-hl.workspace_rule({ workspace = "9", monitor = "DP-2" })
-hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-2", default = true })
-hl.workspace_rule({ workspace = "4", monitor = "HDMI-A-2" })
-hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-2" })
-hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-2" })
-hl.workspace_rule({ workspace = "10", monitor = "HDMI-A-2" })
+if is_laptop then
+	hl.workspace_rule({ workspace = "1", monitor = "DP-2", default = true })
+elseif is_desktop then
+	-- Odd = primary, Even = secondary
+	hl.workspace_rule({ workspace = "1", monitor = "DP-2", default = true })
+	hl.workspace_rule({ workspace = "3", monitor = "DP-2" })
+	hl.workspace_rule({ workspace = "5", monitor = "DP-2" })
+	hl.workspace_rule({ workspace = "7", monitor = "DP-2" })
+	hl.workspace_rule({ workspace = "9", monitor = "DP-2" })
+	hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-2", default = true })
+	hl.workspace_rule({ workspace = "4", monitor = "HDMI-A-2" })
+	hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-2" })
+	hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-2" })
+	hl.workspace_rule({ workspace = "10", monitor = "HDMI-A-2" })
+end
 
 -- workspace = w[tv1], gapsout:0, gapsin:0
 -- workspace = f[1], gapsout:0, gapsin:0
@@ -226,23 +241,23 @@ hl.workspace_rule({ workspace = "10", monitor = "HDMI-A-2" })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
-    dwindle = {
-        preserve_split = true, -- You probably want this
-    },
+	dwindle = {
+		preserve_split = true, -- You probably want this
+	},
 })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
 hl.config({
-    master = {
-        new_status = "master",
-    },
+	master = {
+		new_status = "master",
+	},
 })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
 hl.config({
-    scrolling = {
-        fullscreen_on_one_column = true,
-    },
+	scrolling = {
+		fullscreen_on_one_column = true,
+	},
 })
 
 ---------------
@@ -250,34 +265,34 @@ hl.config({
 ---------------
 
 hl.config({
-    input = {
-        kb_layout    = "fr,us",
-        kb_variant   = "",
-        kb_model     = "",
-        kb_options   = "",
-        kb_rules     = "",
+	input = {
+		kb_layout    = "fr,us",
+		kb_variant   = "",
+		kb_model     = "",
+		kb_options   = "",
+		kb_rules     = "",
 
-        follow_mouse = 1,
+		follow_mouse = 1,
 
-        sensitivity  = 0, -- -1.0 - 1.0, 0 means no modification.
+		sensitivity  = 0, -- -1.0 - 1.0, 0 means no modification.
 
-        touchpad     = {
-            natural_scroll = false,
-        },
-    },
+		touchpad     = {
+			natural_scroll = false,
+		},
+	},
 })
 
 hl.gesture({
-    fingers = 3,
-    direction = "horizontal",
-    action = "workspace"
+	fingers = 3,
+	direction = "horizontal",
+	action = "workspace"
 })
 
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
 hl.device({
-    name        = "epic-mouse-v1",
-    sensitivity = -0.5,
+	name        = "epic-mouse-v1",
+	sensitivity = -0.5,
 })
 
 -------------------------
@@ -314,6 +329,7 @@ hl.bind(main_mod .. "C", hl.dsp.window.close())
 hl.bind(main_mod .. "ALT+C", hl.dsp.window.kill())
 hl.bind(main_mod .. "SHIFT+R", start)
 hl.bind(main_mod .. "SHIFT+T", hl.dsp.exec_cmd(local_bin .. "/toggle-mute-notif"))
+hl.bind(main_mod .. "SHIFT+CTRL+TAB", hl.dsp.exit())
 
 -- Phone mirror
 hl.bind(main_mod .. "P", hl.dsp.exec_cmd(local_bin .. "/phone-camera 1"))
@@ -322,13 +338,13 @@ hl.bind(main_mod .. "ALT+P", hl.dsp.exec_cmd(local_bin .. "/phone-camera 2"))
 --ROFI
 hl.bind(main_mod .. "R", hl.dsp.exec_cmd("rofi -show run"))
 hl.bind(main_mod .. "SPACE",
-    hl.dsp.exec_cmd(
-        "rofi -modi games -combi-modi \"drun,games\" -show-icons -combi-display-format \"{text}\" -show combi"))
+	hl.dsp.exec_cmd(
+		"rofi -modi games -combi-modi \"drun,games\" -show-icons -combi-display-format \"{text}\" -show combi"))
 hl.bind(main_mod .. "SEMICOLON", hl.dsp.exec_cmd(local_bin .. "/clipmenu"))
 hl.bind(main_mod .. "SHIFT + C", hl.dsp.exec_cmd("rofi -show calc -modi calc -no-sort"))
 hl.bind(main_mod .. "SHIFT + E", hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
 hl.bind(main_mod .. "SHIFT + P",
-    hl.dsp.exec_cmd("rofi -show power-menu -modi power-menu:" .. local_bin .. "/rofi-power-menu"))
+	hl.dsp.exec_cmd("rofi -show power-menu -modi power-menu:" .. local_bin .. "/rofi-power-menu"))
 hl.bind(main_mod .. "SHIFT + D", hl.dsp.exec_cmd(local_bin .. "/dmenudunsthistory"))
 
 -------------------------
@@ -336,102 +352,102 @@ hl.bind(main_mod .. "SHIFT + D", hl.dsp.exec_cmd(local_bin .. "/dmenudunsthistor
 -------------------------
 
 local directions = {
-    left  = "l",
-    right = "r",
-    up    = "u",
-    down  = "d",
+	left  = "l",
+	right = "r",
+	up    = "u",
+	down  = "d",
 
-    h     = "l",
-    j     = "d",
-    k     = "u",
-    l     = "r",
+	h     = "l",
+	j     = "d",
+	k     = "u",
+	l     = "r",
 }
 
 -- Focus windows
 for key, dir in pairs(directions) do
-    hl.bind(
-        main_mod .. key,
-        hl.dsp.focus({ direction = dir })
-    )
+	hl.bind(
+		main_mod .. key,
+		hl.dsp.focus({ direction = dir })
+	)
 end
 
 -- Move windows
 for key, dir in pairs(directions) do
-    hl.bind(
-        main_mod .. "SHIFT + " .. key,
-        hl.dsp.window.move({ direction = dir })
-    )
+	hl.bind(
+		main_mod .. "SHIFT + " .. key,
+		hl.dsp.window.move({ direction = dir })
+	)
 end
 
 -- Resize windows
 for key, dir in pairs(directions) do
-    local x = 0
-    local y = 0
-    local amount = 100
+	local x = 0
+	local y = 0
+	local amount = 100
 
-    if dir == "l" then
-        x = x - amount
-    elseif dir == "d" then
-        y = y + amount
-    elseif dir == "u" then
-        y = y - amount
-    elseif dir == "r" then
-        x = x + amount
-    end
+	if dir == "l" then
+		x = x - amount
+	elseif dir == "d" then
+		y = y + amount
+	elseif dir == "u" then
+		y = y - amount
+	elseif dir == "r" then
+		x = x + amount
+	end
 
-    hl.bind(
-        main_mod .. "ALT + " .. key,
-        hl.dsp.window.resize({ x = x, y = y, relative = true })
-    )
+	hl.bind(
+		main_mod .. "ALT + " .. key,
+		hl.dsp.window.resize({ x = x, y = y, relative = true })
+	)
 end
 
 local azerty_keys = {
-    "ampersand",  -- 1
-    "eacute",     -- 2
-    "quotedbl",   -- 3
-    "apostrophe", -- 4
-    "parenleft",  -- 5
-    "minus",      -- 6
-    "egrave",     -- 7
-    "underscore", -- 8
-    "ccedilla",   -- 9
-    "agrave",     -- 10
+	"ampersand", -- 1
+	"eacute", -- 2
+	"quotedbl", -- 3
+	"apostrophe", -- 4
+	"parenleft", -- 5
+	"minus", -- 6
+	"egrave", -- 7
+	"underscore", -- 8
+	"ccedilla", -- 9
+	"agrave", -- 10
 }
 
 -- Azerty keys
 for i, key in ipairs(azerty_keys) do
-    -- Move
-    hl.bind(
-        main_mod .. key,
-        hl.dsp.focus({ workspace = i })
-    )
+	-- Move
+	hl.bind(
+		main_mod .. key,
+		hl.dsp.focus({ workspace = i })
+	)
 
-    -- Focus
-    hl.bind(
-        main_mod .. "SHIFT + " .. key,
-        hl.dsp.window.move({
-            workspace = i,
-            follow = false,
-        })
-    )
+	-- Focus
+	hl.bind(
+		main_mod .. "SHIFT + " .. key,
+		hl.dsp.window.move({
+			workspace = i,
+			follow = false,
+		})
+	)
 end
 
 -- Numpad keys
 for i = 1, 10 do
-    -- Focus
-    hl.bind(
-        main_mod .. "KP_" .. i % 10,
-        hl.dsp.focus({ workspace = i })
-    )
+	-- Focus
+	hl.bind(
+		main_mod .. "KP_" .. i % 10,
+		hl.dsp.focus({ workspace = i })
+	)
 
-    -- Move
-    hl.bind(
-        main_mod .. "SHIFT + KP_" .. i % 10,
-        hl.dsp.window.move({
-            workspace = i,
-            follow = false,
-        })
-    )
+	-- Move
+	hl.bind(
+		main_mod .. "SHIFT + KP_" .. i % 10,
+		hl.dsp.window.move({
+			workspace = i,
+			follow = false,
+		})
+	)
 end
 
 -- Example special workspace (scratchpad)
@@ -448,13 +464,13 @@ hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
-    { locked = true, repeating = true })
+	{ locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-    { locked = true, repeating = true })
+	{ locked = true, repeating = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
-    { locked = true, repeating = true })
+	{ locked = true, repeating = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-    { locked = true, repeating = true })
+	{ locked = true, repeating = true })
 
 hl.bind("SUPER + XF86AudioRaiseVolume", hl.dsp.exec_cmd(local_bin .. "/appvolume +"), { locked = true })
 hl.bind("SUPER + XF86AudioLowerVolume", hl.dsp.exec_cmd(local_bin .. "/appvolume -"), { locked = true })
@@ -492,45 +508,45 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 -- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
 hl.window_rule({
-    -- Fix some dragging issues with XWayland
-    name  = "fix-xwayland-drags",
-    match = {
-        class      = "^$",
-        title      = "^$",
-        xwayland   = true,
-        float      = true,
-        fullscreen = false,
-        pin        = false,
-    },
+	-- Fix some dragging issues with XWayland
+	name  = "fix-xwayland-drags",
+	match = {
+		class      = "^$",
+		title      = "^$",
+		xwayland   = true,
+		float      = true,
+		fullscreen = false,
+		pin        = false,
+	},
 
 
-    no_focus = true,
+	no_focus = true,
 })
 
 -- Hyprland-run windowrule
 hl.window_rule({
-    name  = "move-hyprland-run",
-    match = { class = "hyprland-run" },
+	name  = "move-hyprland-run",
+	match = { class = "hyprland-run" },
 
-    move  = "20 monitor_h-120",
-    float = true,
+	move  = "20 monitor_h-120",
+	float = true,
 })
 
 hl.layer_rule({
-    match        = { namespace = "rofi" },
-    blur         = true,
-    ignore_alpha = 0.5,
+	match        = { namespace = "rofi" },
+	blur         = true,
+	ignore_alpha = 0.5,
 })
 
 hl.layer_rule({
-    match        = { namespace = "rofi" },
-    blur         = true,
-    ignore_alpha = 0.5,
+	match        = { namespace = "rofi" },
+	blur         = true,
+	ignore_alpha = 0.5,
 })
 
 hl.layer_rule({
-    match     = { namespace = "notifications" },
-    animation = "popin"
+	match     = { namespace = "notifications" },
+	animation = "popin"
 })
 
 hl.layer_rule({
