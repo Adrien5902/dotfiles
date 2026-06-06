@@ -311,6 +311,7 @@ hl.bind(main_mod .. "F", hl.dsp.window.float())
 hl.bind(main_mod .. "TAB", hl.dsp.window.fullscreen())
 hl.bind(main_mod .. "mouse:274", hl.dsp.window.close())
 hl.bind(main_mod .. "C", hl.dsp.window.close())
+hl.bind(main_mod .. "ALT+C", hl.dsp.window.kill())
 hl.bind(main_mod .. "SHIFT+R", start)
 hl.bind(main_mod .. "SHIFT+T", hl.dsp.exec_cmd(local_bin .. "/toggle-mute-notif"))
 
@@ -530,4 +531,9 @@ hl.layer_rule({
 hl.layer_rule({
     match     = { namespace = "notifications" },
     animation = "popin"
+})
+
+hl.layer_rule({
+    match = { namespace = "waybar" },
+    order = -1,
 })
