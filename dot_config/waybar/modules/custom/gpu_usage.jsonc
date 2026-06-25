@@ -1,7 +1,7 @@
 {
     "custom/gpu_usage": {
         "format": "{} {icon}", /* "{text} {icon}" for nightly users */
-        "exec": "gpu-usage-waybar",
+        "exec": "/home/adrien/.cargo/bin/gpu-usage-waybar",
         "return-type": "json",
         "format-icons": "󰾲",
         "on-click": "kitty -e nvtop"

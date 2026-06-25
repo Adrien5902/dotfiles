@@ -8,8 +8,6 @@ if status is-interactive
 
     alias we='thunar . >/dev/null 2>&1 & disown'
     alias rl='source ~/.config/fish/config.fish'
-    alias zen='flatpak run app.zen_browser.zen'
-    alias epic='flatpak run com.heroicgameslauncher.hgl & disown'
     alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 end
 

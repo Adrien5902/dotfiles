@@ -14,3 +14,10 @@
 #group-kdeconnect {
     margin: 8px;
 }
+
+#taskbar {
+    background-image: url("file:///home/adrien/.config/waybar/assets/media_controls.png");
+    background-position: 0 center;
+    background-repeat: repeat-x;
+    margin: 0 12px;
+}
