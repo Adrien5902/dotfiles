@@ -10,7 +10,6 @@
 require("hyprland.animations")
 require("hyprland.monitors")
 require("hyprland.variables")
-require("hyprland.binds")
 require("hyprland.input")
 require("hyprland.windows_and_workspaces")
 
@@ -29,6 +28,21 @@ hl.on("hyprland.start", start)
 
 hl.env("HYPRCURSOR_THEME", "MikuCat")
 hl.env("HYPRCURSOR_SIZE", 24)
+
+local binds_disabled = io.popen("cat /home/adrien/HL_BINDS_DISABLED"):read("*l") == "true"
+if not binds_disabled then
+	require("hyprland.binds")
+end
+
+local function toggleBinds()
+	local file = io.open("/home/adrien/HL_BINDS_DISABLED", "w")
+	file:write(tostring(not binds_disabled))
+	file:close()
+	hl.exec_cmd("notify-send \"Hyprland keybinds disabled : " .. tostring(not binds_disabled) .. "\"")
+	hl.exec_cmd("hyprctl reload")
+end
+
+hl.bind("SUPER+SHIFT+M", toggleBinds)
 
 -------------------------
 ------ PERMISSIONS ------

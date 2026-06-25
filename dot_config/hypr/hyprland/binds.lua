@@ -23,8 +23,9 @@ hl.bind(main_mod .. "O", hl.dsp.exec_cmd(apps.notes))
 
 -- Screen copy
 hl.bind(main_mod .. "M", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
-hl.bind("Print", hl.dsp.exec_cmd("grim -o \"DP-2\" - | wl-copy"))
 hl.bind(main_mod .. "SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
+hl.bind("Print", hl.dsp.exec_cmd("grim -o \"DP-2\" - | wl-copy"))
+hl.bind("SHIFT+Print", hl.dsp.exec_cmd("grim -o \"HDMI-A-2\" - | wl-copy"))
 hl.bind(main_mod .. "SHIFT + O", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | tesseract - - | wl-copy"))
 
 -- HL Stuff
@@ -117,7 +118,7 @@ local azerty_keys = {
     "egrave",     -- 7
     "underscore", -- 8
     "ccedilla",   -- 9
-    "agrave",     -- 10
+    "agrave",     -- 0
 }
 
 -- Azerty keys

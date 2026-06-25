@@ -9,10 +9,10 @@ return {
     -- Apps
     ["terminal"] = "kitty",
     ["fileManager"] = "thunar",
-    ["browser"] = "flatpak run app.zen_browser.zen",
+    ["browser"] = "zen-browser",
     ["discord"] = "discord",
     ["spotify"] = "spotify-launcher",
-    ["notes"] = "flatpak run md.obsidian.Obsidian",
+    ["notes"] = "obsidian",
     ["code_editor"] = "code",
 
     -- Paths
