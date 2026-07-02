@@ -29,17 +29,14 @@ hl.on("hyprland.start", start)
 hl.env("HYPRCURSOR_THEME", "MikuCat")
 hl.env("HYPRCURSOR_SIZE", 24)
 
-local binds_disabled = io.popen("cat /home/adrien/HL_BINDS_DISABLED"):read("*l") == "true"
+local binds_disabled = false
 if not binds_disabled then
 	require("hyprland.binds")
 end
 
 local function toggleBinds()
-	local file = io.open("/home/adrien/HL_BINDS_DISABLED", "w")
-	file:write(tostring(not binds_disabled))
-	file:close()
+	binds_disabled = not binds_disabled
 	hl.exec_cmd("notify-send \"Hyprland keybinds disabled : " .. tostring(not binds_disabled) .. "\"")
-	hl.exec_cmd("hyprctl reload")
 end
 
 hl.bind("SUPER+SHIFT+M", toggleBinds)

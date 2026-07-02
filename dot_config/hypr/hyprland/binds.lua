@@ -45,13 +45,13 @@ hl.bind(main_mod .. "ALT+P", hl.dsp.exec_cmd(apps.local_bin .. "/phone-camera 2"
 --ROFI
 hl.bind(main_mod .. "R", hl.dsp.exec_cmd("rofi -show run"))
 hl.bind(main_mod .. "SPACE",
-    hl.dsp.exec_cmd(
-        "rofi -modi games -combi-modi \"drun,games\" -show-icons -combi-display-format \"{text}\" -show combi"))
+	hl.dsp.exec_cmd(
+		"rofi -modi games -combi-modi \"drun,games\" -show-icons -combi-display-format \"{text}\" -show combi"))
 hl.bind(main_mod .. "SEMICOLON", hl.dsp.exec_cmd(apps.local_bin .. "/clipmenu"))
 hl.bind(main_mod .. "SHIFT + C", hl.dsp.exec_cmd("rofi -show calc -modi calc -no-sort"))
 hl.bind(main_mod .. "SHIFT + E", hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
 hl.bind(main_mod .. "SHIFT + P",
-    hl.dsp.exec_cmd("rofi -show power-menu -modi power-menu:" .. apps.local_bin .. "/rofi-power-menu"))
+	hl.dsp.exec_cmd("rofi -show power-menu -modi power-menu:" .. apps.local_bin .. "/rofi-power-menu"))
 hl.bind(main_mod .. "SHIFT + D", hl.dsp.exec_cmd(apps.local_bin .. "/dmenudunsthistory"))
 
 -------------------------
@@ -59,104 +59,104 @@ hl.bind(main_mod .. "SHIFT + D", hl.dsp.exec_cmd(apps.local_bin .. "/dmenudunsth
 -------------------------
 
 local directions = {
-    left  = "l",
-    right = "r",
-    up    = "u",
-    down  = "d",
+	left  = "l",
+	right = "r",
+	up    = "u",
+	down  = "d",
 
-    h     = "l",
-    j     = "d",
-    k     = "u",
-    l     = "r",
+	h     = "l",
+	j     = "d",
+	k     = "u",
+	l     = "r",
 }
 
 -- Focus windows
 for key, dir in pairs(directions) do
-    hl.bind(
-        main_mod .. key,
-        hl.dsp.focus({ direction = dir })
-    )
+	hl.bind(
+		main_mod .. key,
+		hl.dsp.focus({ direction = dir })
+	)
 end
 
 -- Move windows
 for key, dir in pairs(directions) do
-    hl.bind(
-        main_mod .. "SHIFT + " .. key,
-        hl.dsp.window.move({ direction = dir })
-    )
+	hl.bind(
+		main_mod .. "SHIFT + " .. key,
+		hl.dsp.window.move({ direction = dir })
+	)
 end
 
 -- Resize windows
 for key, dir in pairs(directions) do
-    local x = 0
-    local y = 0
-    local amount = 100
+	local x = 0
+	local y = 0
+	local amount = 100
 
-    if dir == "l" then
-        x = x - amount
-    elseif dir == "d" then
-        y = y + amount
-    elseif dir == "u" then
-        y = y - amount
-    elseif dir == "r" then
-        x = x + amount
-    end
+	if dir == "l" then
+		x = x - amount
+	elseif dir == "d" then
+		y = y + amount
+	elseif dir == "u" then
+		y = y - amount
+	elseif dir == "r" then
+		x = x + amount
+	end
 
-    hl.bind(
-        main_mod .. "ALT + " .. key,
-        hl.dsp.window.resize({ x = x, y = y, relative = true })
-    )
+	hl.bind(
+		main_mod .. "ALT + " .. key,
+		hl.dsp.window.resize({ x = x, y = y, relative = true })
+	)
 end
 
 local azerty_keys = {
-    "ampersand",  -- 1
-    "eacute",     -- 2
-    "quotedbl",   -- 3
-    "apostrophe", -- 4
-    "parenleft",  -- 5
-    "minus",      -- 6
-    "egrave",     -- 7
-    "underscore", -- 8
-    "ccedilla",   -- 9
-    "agrave",     -- 0
+	"ampersand", -- 1
+	"eacute", -- 2
+	"quotedbl", -- 3
+	"apostrophe", -- 4
+	"parenleft", -- 5
+	"minus", -- 6
+	"egrave", -- 7
+	"underscore", -- 8
+	"ccedilla", -- 9
+	"agrave", -- 0
 }
 
 -- Azerty keys
 for i, key in ipairs(azerty_keys) do
-    -- Move
-    hl.bind(
-        main_mod .. key,
-        hl.dsp.focus({ workspace = i })
-    )
+	-- Move
+	hl.bind(
+		main_mod .. key,
+		hl.dsp.focus({ workspace = i })
+	)
 
-    -- Focus
-    hl.bind(
-        main_mod .. "SHIFT + " .. key,
-        hl.dsp.window.move({
-            workspace = i,
-            follow = false,
-        })
-    )
+	-- Focus
+	hl.bind(
+		main_mod .. "SHIFT + " .. key,
+		hl.dsp.window.move({
+			workspace = i,
+			follow = false,
+		})
+	)
 end
 
 -- Numpad keys
 for i = 1, 10 do
-    local i_mod_10 = i % 10
+	local i_mod_10 = i % 10
 
-    -- Focus
-    hl.bind(
-        main_mod .. "KP_" .. i_mod_10,
-        hl.dsp.focus({ workspace = i })
-    )
+	-- Focus
+	hl.bind(
+		main_mod .. "KP_" .. i_mod_10,
+		hl.dsp.focus({ workspace = i })
+	)
 
-    -- Move
-    hl.bind(
-        main_mod .. "SHIFT + KP_" .. i_mod_10,
-        hl.dsp.window.move({
-            workspace = i,
-            follow = false,
-        })
-    )
+	-- Move
+	hl.bind(
+		main_mod .. "SHIFT + KP_" .. i_mod_10,
+		hl.dsp.window.move({
+			workspace = i,
+			follow = false,
+		})
+	)
 end
 
 -- Scroll through existing workspaces with mainMod + scroll
@@ -169,13 +169,13 @@ hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
-    { locked = true, repeating = true })
+	{ locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-    { locked = true, repeating = true })
+	{ locked = true, repeating = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
-    { locked = true, repeating = true })
+	{ locked = true, repeating = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-    { locked = true, repeating = true })
+	{ locked = true, repeating = true })
 
 hl.bind("SUPER + XF86AudioRaiseVolume", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume +"), { locked = true })
 hl.bind("SUPER + XF86AudioLowerVolume", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume -"), { locked = true })
