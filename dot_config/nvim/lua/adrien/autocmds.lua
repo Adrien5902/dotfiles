@@ -51,6 +51,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				end,
 			})
 		end
+
+		if client and client_supports_method(client, "textDocument/completion") then
+			local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
+			client.server_capabilities.completionProvider.triggerCharacters = chars
+			vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = false })
+		end
 	end,
 
 })
@@ -76,10 +82,10 @@ vim.api.nvim_set_hl(0, "LineNr3", { fg = "#7b7b7b" })
 vim.api.nvim_set_hl(0, "LineNr4", { fg = "#5a5a5a" })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "netrw",
-  callback = function()
-    local opts = { buffer = true, remap = true }
-    vim.keymap.set("n", "l", "<Plug>NetrwLocalBrowseCheck", opts)
-    vim.keymap.set("n", "h", "-", opts)
-  end,
+	pattern = "netrw",
+	callback = function()
+		local opts = { buffer = true, remap = true }
+		vim.keymap.set("n", "l", "<Plug>NetrwLocalBrowseCheck", opts)
+		vim.keymap.set("n", "h", "-", opts)
+	end,
 })
