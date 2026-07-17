@@ -12,6 +12,7 @@ require("hyprland.monitors")
 require("hyprland.variables")
 require("hyprland.input")
 require("hyprland.windows_and_workspaces")
+require("hyprland.hostname")
 
 -----------------------
 ------ AUTOSTART ------
@@ -56,3 +57,12 @@ hl.bind("SUPER+SHIFT+M", toggleBinds)
 -- permission = /usr/(bin|local/bin)/grim, screencopy, allow
 -- permission = /usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland, screencopy, allow
 -- permission = /usr/(bin|local/bin)/hyprpm, plugin, allow
+
+
+---------------
+--- GESTURES---
+---------------
+
+if is_laptop then
+	require("hyprland.gestures")
+end

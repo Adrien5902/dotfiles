@@ -40,8 +40,8 @@ hl.bind("SUPER + I", toggle_vertical)
 if is_laptop then
 	hl.monitor({
 		output = "eDP-1",
-		mode = "1920x1080@60",
-		scale = 1.2,
+		mode = "1920x1080@50.18700",
+		scale = 1,
 	})
 elseif is_desktop then
 	hl.monitor({
