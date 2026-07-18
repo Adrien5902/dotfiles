@@ -1,5 +1,11 @@
-#custom-power {
+#workspaces_and_power #custom-power {
 	margin-right: 12px;
+	margin-left: 4px;
+	margin-top: 6px;
+}
+
+#workspaces_and_battery #custom-power {
+	margin-right: 6px;
 	margin-left: 4px;
 	margin-top: 6px;
 }
@@ -9,6 +15,7 @@
 	padding: 0px 12px;
 }
 
+#workspaces_and_battery,
 #workspaces_and_power {
 	padding: 0px 30px;
 	background-image: url("file:///home/adrien/.config/waybar/assets/workspaces_and_power.png");
