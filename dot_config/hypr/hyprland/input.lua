@@ -3,33 +3,25 @@
 ---------------
 
 hl.config({
-	input = {
-		kb_layout          = "fr,us",
-		kb_variant         = "",
-		kb_model           = "",
-		--kb_options   = "caps:swapescape", I use keyd instead it works better
-		kb_rules           = "",
-		numlock_by_default = true,
+    input = {
+        kb_layout    = "fr,us",
+        kb_variant   = "",
+        kb_model     = "",
+        kb_options = "caps:swapescape",
+        kb_rules     = "",
 
-		follow_mouse       = 1,
+        follow_mouse = 1,
 
-		sensitivity        = 0, -- -1.0 - 1.0, 0 means no modification.
-
-		touchpad           = {
-			natural_scroll = false,
-		},
-	},
-})
-
-hl.gesture({
-	fingers = 3,
-	direction = "horizontal",
-	action = "workspace"
+        sensitivity  = 0, -- -1.0 - 1.0, 0 means no modification.
+        touchpad     = {
+            natural_scroll = false,
+        },
+    },
 })
 
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
 hl.device({
-	name        = "epic-mouse-v1",
-	sensitivity = -0.5,
+    name        = "epic-mouse-v1",
+    sensitivity = -0.5,
 })

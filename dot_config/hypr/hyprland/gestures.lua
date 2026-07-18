@@ -7,10 +7,16 @@ local apps = require("hyprland.apps")
 hl.gesture({ mods = "SUPER", fingers = 3, direction = "down", action = "close" })
 hl.gesture({ mods = "SUPER", fingers = 3, direction = "up", action = "fullscreen" })
 
+hl.gesture({
+    fingers = 3,
+    direction = "horizontal",
+    action = "workspace"
+})
+
+
 ------------------------
 --- MUSIC AND SOUNDS ---
 ------------------------
-
 hl.gesture({
 	fingers = 4,
 	direction = "up",
