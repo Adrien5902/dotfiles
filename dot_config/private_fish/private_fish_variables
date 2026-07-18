@@ -1,4 +1,0 @@
-# This file contains fish universal variable definitions.
-# VERSION: 3.0
-SETUVAR __fish_initialized:4300
-SETUVAR fish_user_paths:/home/adrien/go/bin\x1e/home/adrien/\x2espicetify\x1e/home/adrien/\x2ecargo/bin\x1e/home/adrien/\x2elocal/bin

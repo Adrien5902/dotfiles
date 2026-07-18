@@ -16,15 +16,16 @@ export EDITOR=nvim
 
 # Rust better CLI tools alias
 alias ls="eza"
-alias cat="bat"
 alias du="dust"
-alias curl="xh"
-alias grep="rg"
+alias cat="bat"
+alias n="nvim ."
+alias c="code ."
 
 fish_add_path ~/.local/bin
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.spicetify
 fish_add_path ~/go/bin
+fish_add_path ~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin
 
 # BEGIN opam configuration
 # This is useful if you're using opam as it adds:
