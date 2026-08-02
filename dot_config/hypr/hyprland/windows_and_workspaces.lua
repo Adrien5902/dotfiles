@@ -93,6 +93,13 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	match = {
+		fullscreen = true
+	},
+	idle_inhibit = "always"
+})
+
+hl.window_rule({
 	match = { xdg_tag = "proton-game" },
 	content = "game"
 })

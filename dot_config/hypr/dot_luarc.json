@@ -3,5 +3,11 @@
 		"library": [
 			"/usr/share/hypr/stubs"
 		]
-	}
+	},
+    "diagnostics.globals": [
+        "table_invert",
+        "hostname",
+        "is_laptop",
+        "is_desktop"
+    ]
 }

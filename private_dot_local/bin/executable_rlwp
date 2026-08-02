@@ -12,7 +12,6 @@ linux-wallpaperengine \
         --bg $2 >/dev/null 2>&1 &
 
 disown
-sleep 0.3
 
 waybar >/dev/null 2>&1 &
 disown

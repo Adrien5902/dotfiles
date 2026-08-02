@@ -21,6 +21,8 @@ hl.bind(main_mod .. "E", hl.dsp.exec_cmd(apps.fileManager))
 hl.bind(main_mod .. "V", hl.dsp.exec_cmd(apps.code_editor))
 hl.bind(main_mod .. "O", hl.dsp.exec_cmd(apps.notes))
 
+hl.bind(main_mod .. "X", hl.dsp.focus({ last = true }))
+
 -- Screen copy
 hl.bind(main_mod .. "M", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
 hl.bind(main_mod .. "SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
@@ -48,7 +50,7 @@ hl.bind(main_mod .. "SPACE",
 	hl.dsp.exec_cmd(
 		"rofi -modi games -combi-modi \"drun,games\" -show-icons -combi-display-format \"{text}\" -show combi"))
 hl.bind(main_mod .. "SEMICOLON", hl.dsp.exec_cmd(apps.local_bin .. "/clipmenu"))
-hl.bind(main_mod .. "SHIFT + C", hl.dsp.exec_cmd("rofi -show calc -modi calc -no-sort"))
+hl.bind(main_mod .. "SHIFT + X", hl.dsp.exec_cmd("rofi -show calc -modi calc -no-sort"))
 hl.bind(main_mod .. "SHIFT + E", hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
 hl.bind(main_mod .. "SHIFT + P",
 	hl.dsp.exec_cmd("rofi -show power-menu -modi power-menu:" .. apps.local_bin .. "/rofi-power-menu"))

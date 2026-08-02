@@ -9,7 +9,9 @@
 			Layout
 		------------*/
 		"modules-left": [
-			"group/date_time"
+			"group/date_time",
+			"custom/idle_inhibit",
+			"bleutooth"
 		],
 		"modules-center": [
 			"group/specs"
