@@ -9,25 +9,53 @@ local main_mod = "SUPER + "
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Binds/ for more
 -- Apps
+local function bind_app_shortcut(shortcut, app)
+	local start_cmd
+	local selector
+
+	if type(app) == "string" then
+		start_cmd = app
+		selector = "class:" .. app
+	else
+		start_cmd = app.start_cmd
+		selector = app.selector
+	end
+
+	hl.bind(shortcut, function()
+		if hl.get_window(selector) == nil then
+			-- Start process
+			hl.exec_cmd(start_cmd)
+		else
+			-- Focus app
+			hl.dispatch(hl.dsp.focus({ window = selector }))
+		end
+	end)
+end
+
+-- Don't focus on browser and terminal
 hl.bind(main_mod .. "Q", hl.dsp.exec_cmd(apps.terminal))
 hl.bind(main_mod .. "A", hl.dsp.exec_cmd(apps.browser))
-hl.bind(main_mod .. "S", hl.dsp.exec_cmd(apps.spotify))
-hl.bind(main_mod .. "S", hl.dsp.focus({ window = "class:Spotify" }))
-hl.bind(main_mod .. "D", hl.dsp.exec_cmd(apps.discord))
-hl.bind(main_mod .. "D", hl.dsp.focus({ window = "class:discord" }))
-hl.bind(main_mod .. "SHIFT+A", hl.dsp.exec_cmd("steam"))
-hl.bind(main_mod .. "SHIFT+A", hl.dsp.focus({ window = "class:steam" }))
-hl.bind(main_mod .. "E", hl.dsp.exec_cmd(apps.fileManager))
-hl.bind(main_mod .. "V", hl.dsp.exec_cmd(apps.code_editor))
-hl.bind(main_mod .. "O", hl.dsp.exec_cmd(apps.notes))
+
+bind_app_shortcut(main_mod .. "S", apps.spotify)
+bind_app_shortcut(main_mod .. "D", apps.discord)
+bind_app_shortcut(main_mod .. "E", apps.fileManager)
+bind_app_shortcut(main_mod .. "V", apps.code_editor)
+bind_app_shortcut(main_mod .. "O", apps.notes)
+bind_app_shortcut(main_mod .. "SHIFT+A", "steam")
+bind_app_shortcut(main_mod .. "SHIFT+E", apps.editor)
 
 hl.bind(main_mod .. "X", hl.dsp.focus({ last = true }))
 
 -- Screen copy
-hl.bind(main_mod .. "M", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
+hl.bind(main_mod .. "SHIFT + M", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
+
+if is_desktop then
+	hl.bind("Print", hl.dsp.exec_cmd("grim -o \"DP-2\" - | wl-copy"))
+else
+	hl.bind("Print", hl.dsp.exec_cmd("grim - | wl-copy"))
+end
+
 hl.bind(main_mod .. "SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
-hl.bind("Print", hl.dsp.exec_cmd("grim -o \"DP-2\" - | wl-copy"))
-hl.bind("SHIFT+Print", hl.dsp.exec_cmd("grim -o \"HDMI-A-2\" - | wl-copy"))
 hl.bind(main_mod .. "SHIFT + O", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | tesseract - - | wl-copy"))
 
 -- HL Stuff
@@ -43,6 +71,8 @@ hl.bind(main_mod .. "SHIFT+CTRL+TAB", hl.dsp.exit())
 -- Phone mirror
 hl.bind(main_mod .. "P", hl.dsp.exec_cmd(apps.local_bin .. "/phone-camera 1"))
 hl.bind(main_mod .. "ALT+P", hl.dsp.exec_cmd(apps.local_bin .. "/phone-camera 2"))
+
+hl.bind(main_mod .. "N", hl.dsp.exec_cmd("notify-send \"$(" .. apps.cargo_bin .. "/kdeconnect_waybar -n -c notifications | jq .tooltip -r)\""))
 
 --ROFI
 hl.bind(main_mod .. "R", hl.dsp.exec_cmd("rofi -show run"))
@@ -120,7 +150,7 @@ local azerty_keys = {
 	"egrave", -- 7
 	"underscore", -- 8
 	"ccedilla", -- 9
-	"agrave", -- 0
+	"agrave", -- 10
 }
 
 -- Azerty keys
@@ -178,6 +208,10 @@ hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ to
 	{ locked = true, repeating = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
 	{ locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"),
+	{ locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"),
+	{ locked = true, repeating = true })
 
 hl.bind("SUPER + XF86AudioRaiseVolume", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume +"), { locked = true })
 hl.bind("SUPER + XF86AudioLowerVolume", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume -"), { locked = true })
@@ -186,22 +220,6 @@ hl.bind("SUPER + XF86AudioLowerVolume", hl.dsp.exec_cmd(apps.local_bin .. "/appv
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("Pause", hl.dsp.exec_cmd("playerctl play-pause"))
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
--- bind = , XF86Tools, exec, xdotool key ctrl+super+meta+m
--- bind = , XF86Launch5, exec, xdotool key xdotool key ctrl+super+meta+c
-
--- bind = , XF86Launch6, exec,
--- bind = , XF86Launch7, exec,
--- bind = , XF86Launch8, exec,
-
--- windowrule{
---     name = Genshin
---     match:title = Genshin Impact
-
---     bind = , mouse:275, exec, xdotool key a
---     bind = , mouse:276, exec, xdotool key e
---     bind = , mouse:277, exec, xdotool key f
---     bind = , mouse:278, exec, xdotool key n
---     bind = , mouse:279, exec, xdotool key t
--- }

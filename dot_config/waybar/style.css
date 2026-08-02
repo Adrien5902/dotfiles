@@ -6,8 +6,9 @@
 }
 
 @import "styles/fonts.css";
-@import "styles/workspace_and_power.css";
 @import "styles/media_controls.css";
+@import "styles/workspace_and_power.css";
+@import "styles/battery.css";
 @import "styles/song_details.css";
 @import "styles/date_time.css";
 @import "styles/specs.css";

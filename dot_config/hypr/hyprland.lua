@@ -6,6 +6,7 @@
 
 -- You can split this configuration into multiple files
 -- Create your files separately and then link them to this file like this:
+require("hyprland.hostname")
 
 require("hyprland.animations")
 require("hyprland.monitors")
@@ -39,7 +40,7 @@ local function toggleBinds()
 	hl.exec_cmd("notify-send \"Hyprland keybinds disabled : " .. tostring(not binds_disabled) .. "\"")
 end
 
-hl.bind("SUPER+SHIFT+M", toggleBinds)
+hl.bind("SUPER+ALT+M", toggleBinds)
 
 -------------------------
 ------ PERMISSIONS ------
@@ -56,3 +57,12 @@ hl.bind("SUPER+SHIFT+M", toggleBinds)
 -- permission = /usr/(bin|local/bin)/grim, screencopy, allow
 -- permission = /usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland, screencopy, allow
 -- permission = /usr/(bin|local/bin)/hyprpm, plugin, allow
+
+
+---------------
+--- GESTURES---
+---------------
+
+if is_laptop then
+	require("hyprland.gestures")
+end
