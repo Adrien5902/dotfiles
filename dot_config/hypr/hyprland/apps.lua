@@ -9,12 +9,18 @@ local spotify
 if low_performance then
 	spotify = {
 		start_cmd = "kitty -e ncspot",
-		selector = "title:ncspot"
+		selector = "title:ncspot",
+		table_selector = {
+			title = "ncspot"
+		}
 	}
 else
 	spotify = {
 		start_cmd = "spotify-launcher",
-		selector = "class:Spotify"
+		selector = "class:Spotify",
+		table_selector = {
+			class = "Spotify"
+		}
 	}
 end
 

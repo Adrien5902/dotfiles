@@ -20,10 +20,12 @@ alias du="dust"
 alias cat="bat"
 alias n="nvim ."
 alias c="code ."
+alias wlc="wl-copy"
 
 fish_add_path ~/.local/bin
 fish_add_path ~/.cargo/bin
 fish_add_path ~/.spicetify
+fish_add_path ~/.bun/bin
 fish_add_path ~/go/bin
 fish_add_path ~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin
 

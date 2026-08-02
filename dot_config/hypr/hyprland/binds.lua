@@ -45,8 +45,14 @@ bind_app_shortcut(main_mod .. "SHIFT+A", "steam")
 bind_app_shortcut(main_mod .. "SHIFT+E", apps.editor)
 
 -- Screen copy
-hl.bind(main_mod .. "M", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
-hl.bind("Print", hl.dsp.exec_cmd("grim -o \"DP-2\" - | wl-copy"))
+hl.bind(main_mod .. "SHIFT + M", hl.dsp.exec_cmd("hyprpicker | wl-copy"))
+
+if is_desktop then
+	hl.bind("Print", hl.dsp.exec_cmd("grim -o \"DP-2\" - | wl-copy"))
+else
+	hl.bind("Print", hl.dsp.exec_cmd("grim - | wl-copy"))
+end
+
 hl.bind(main_mod .. "SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
 hl.bind(main_mod .. "SHIFT + O", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | tesseract - - | wl-copy"))
 
@@ -212,22 +218,6 @@ hl.bind("SUPER + XF86AudioLowerVolume", hl.dsp.exec_cmd(apps.local_bin .. "/appv
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("Pause", hl.dsp.exec_cmd("playerctl play-pause"))
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
--- bind = , XF86Tools, exec, xdotool key ctrl+super+meta+m
--- bind = , XF86Launch5, exec, xdotool key xdotool key ctrl+super+meta+c
-
--- bind = , XF86Launch6, exec,
--- bind = , XF86Launch7, exec,
--- bind = , XF86Launch8, exec,
-
--- windowrule{
---     name = Genshin
---     match:title = Genshin Impact
-
---     bind = , mouse:275, exec, xdotool key a
---     bind = , mouse:276, exec, xdotool key e
---     bind = , mouse:277, exec, xdotool key f
---     bind = , mouse:278, exec, xdotool key n
---     bind = , mouse:279, exec, xdotool key t
--- }

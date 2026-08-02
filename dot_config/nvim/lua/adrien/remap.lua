@@ -20,3 +20,11 @@ vim.keymap.set('n', '<C-j>', '<C-w>j', opts)
 vim.keymap.set('n', '<C-k>', '<C-w>k', opts)
 vim.keymap.set('n', '<C-l>', '<C-w>l', opts)
 
+vim.keymap.set({ "n", "x" }, "<leader>gk", function()
+	require("tiny-code-action").code_action()
+end, { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>w", function()
+  vim.opt.wrap = not vim.opt.wrap:get()
+end, { desc = "Toggle line wrapping" })
+

@@ -12,9 +12,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("K", vim.lsp.buf.hover, "Hover Documentation")
 		map("gs", vim.lsp.buf.signature_help, "Signature Documentation")
 		map("<leader>gd", vim.lsp.buf.declaration, "Goto Declaration")
+		map("<leader>gr", vim.lsp.buf.references, "Goto references")
+		map("<leader>gi", vim.lsp.buf.implementation, "Goto Implementation")
 		map("<leader>la", vim.lsp.buf.code_action, "Code Action")
 		map("<leader>lr", vim.lsp.buf.rename, "Rename all references")
-		map("<leader>lf", vim.lsp.buf.format, "Format")
+		map("<leader>f", vim.lsp.buf.format, "Format")
 		map("<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
 
 		local function client_supports_method(client, method, bufnr)
@@ -50,12 +52,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 					vim.api.nvim_clear_autocmds { group = 'lsp-highlight', buffer = event2.buf }
 				end,
 			})
-		end
-
-		if client and client_supports_method(client, "textDocument/completion") then
-			local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
-			client.server_capabilities.completionProvider.triggerCharacters = chars
-			vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = false })
 		end
 	end,
 

@@ -6,13 +6,13 @@
 
 -- You can split this configuration into multiple files
 -- Create your files separately and then link them to this file like this:
+require("hyprland.hostname")
 
 require("hyprland.animations")
 require("hyprland.monitors")
 require("hyprland.variables")
 require("hyprland.input")
 require("hyprland.windows_and_workspaces")
-require("hyprland.hostname")
 
 -----------------------
 ------ AUTOSTART ------
@@ -40,7 +40,7 @@ local function toggleBinds()
 	hl.exec_cmd("notify-send \"Hyprland keybinds disabled : " .. tostring(not binds_disabled) .. "\"")
 end
 
-hl.bind("SUPER+SHIFT+M", toggleBinds)
+hl.bind("SUPER+ALT+M", toggleBinds)
 
 -------------------------
 ------ PERMISSIONS ------

@@ -8,11 +8,11 @@ local apps = require("hyprland.apps")
 -- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
 local workspaces = {
-    ["main"] = 1,
-    ["secondary"] = 2,
-    ["browser"] = 3,
-    ["reading"] = 4,
-    ["games"] = 5
+    main = 1,
+    secondary = 2,
+    browser = 3,
+    reading = 4,
+    games = 5
 }
 
 function table_invert(t)
@@ -61,21 +61,19 @@ elseif is_desktop then
 end
 
 hl.window_rule({
-    match = {
-        class = "Spotify"
-    },
+    match = apps.spotify.table_selector,
     workspace = workspaces["secondary"]
 })
 hl.window_rule({
     match = {
-        class = "discord"
+        class = apps.discord
     },
     workspace = workspaces["secondary"]
 })
 
 hl.window_rule({
     match = {
-        class = apps["browser"]
+        class = apps.browser
     },
     workspace = workspaces["browser"]
 })
