@@ -1,3 +1,9 @@
+local Rule = require('nvim-autopairs.rule')
+local npairs = require('nvim-autopairs')
+
+npairs.add_rule(Rule("<",">","rust"))
+npairs.add_rule(Rule("|","|","rust"))
+
 ---@brief
 ---
 --- https://github.com/rust-lang/rust-analyzer

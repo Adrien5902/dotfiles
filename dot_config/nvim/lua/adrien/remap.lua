@@ -25,6 +25,9 @@ vim.keymap.set({ "n", "x" }, "<leader>gk", function()
 end, { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>w", function()
-  vim.opt.wrap = not vim.opt.wrap:get()
+	vim.opt.wrap = not vim.opt.wrap:get()
 end, { desc = "Toggle line wrapping" })
 
+vim.keymap.set('n', '<leader>i', function()
+	vim.cmd("InlayHintsToggle")
+end)

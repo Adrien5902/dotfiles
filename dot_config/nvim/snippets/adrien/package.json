@@ -1,0 +1,13 @@
+{
+	"name": "adrien-snippets",
+	"contributes": {
+		"snippets": [
+			{
+				"language": [
+					"rust"
+				],
+				"path": "rust.jsonc"
+			}
+		]
+	}
+}

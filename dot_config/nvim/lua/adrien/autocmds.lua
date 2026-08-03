@@ -8,16 +8,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- defaults:
 		-- https://neovim.io/doc/user/news-0.11.html#_defaults
 
-		map("gl", vim.diagnostic.open_float, "Open Diagnostic Float")
+		map("<leader>gl", vim.diagnostic.open_float, "Open Diagnostic Float")
 		map("K", vim.lsp.buf.hover, "Hover Documentation")
 		map("gs", vim.lsp.buf.signature_help, "Signature Documentation")
 		map("<leader>gd", vim.lsp.buf.declaration, "Goto Declaration")
 		map("<leader>gr", vim.lsp.buf.references, "Goto references")
 		map("<leader>gi", vim.lsp.buf.implementation, "Goto Implementation")
-		map("<leader>la", vim.lsp.buf.code_action, "Code Action")
 		map("<leader>lr", vim.lsp.buf.rename, "Rename all references")
 		map("<leader>f", vim.lsp.buf.format, "Format")
 		map("<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
+
+		local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+		if client.name == "vtsls" then
+			client.server_capabilities.documentFormattingProvider = false
+			client.server_capabilities.documentRangeFormattingProvider = false
+		end
 
 		local function client_supports_method(client, method, bufnr)
 			if vim.fn.has 'nvim-0.11' == 1 then
@@ -27,7 +33,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			end
 		end
 
-		local client = vim.lsp.get_client_by_id(event.data.client_id)
 		if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
 			local highlight_augroup = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
 

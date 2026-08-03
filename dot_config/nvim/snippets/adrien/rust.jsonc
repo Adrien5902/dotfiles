@@ -1,0 +1,119 @@
+{
+	// Place your snippets for rust here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Panic debug": {
+		"prefix": "scream",
+		"body": [
+			"panic!(\"{:?}\", $1);",
+		],
+		"description": "Debug panic 😱🐞"
+	},
+	"Panic debug pretty": {
+		"prefix": "screamp",
+		"body": [
+			"panic!(\"{:#?}\", $1);",
+		],
+		"description": "Debug panic 😱🐞💅"
+	},
+	"Debug to console": {
+		"prefix": "clg",
+		"body": [
+			"println!(\"{:?}\", $1);",
+		],
+		"description": "Log output to console"
+	},
+	"Debug pretty to console": {
+		"prefix": "clgp",
+		"body": [
+			"println!(\"{:#?}\", $1);",
+		],
+		"description": "Log output to console in a pretty way 💅"
+	},
+	"Derive Debug": {
+		"prefix": "ddeb",
+		"body": [
+			"#[derive(Debug)]",
+		],
+		"description": "Add derive statement with Debug trait to type def"
+	},
+	"Result Vec Collect from Iter": {
+		"prefix": "resveccollect",
+		"body": [
+			".collect::<Result<Vec<${1:_}>, ${2:_}>>()?$3;",
+		],
+		"description": "Collects the Iter into a Result of Vec"
+	},
+	"Vec Collect from Iter": {
+		"prefix": "veccollect",
+		"body": [
+			".collect::<Vec<${1:_}>>()$2;",
+		],
+		"description": "Collects the Iter into a Vec"
+	},
+	"Map Unknown Error": {
+		"prefix": "maperr",
+		"body": [
+			".map_err(|${1:_}| { $2 })",
+		],
+		"description": "Map error from Result with _ as default closure arg"
+	},
+	"Map Err to String": {
+		"prefix": "mapstr",
+		"body": [
+			".map_err(|e| e.to_string())?"
+		],
+		"description": "Turns err variant of result into a String"
+	},
+	"New Yew function component": {
+		"prefix": "yewfc",
+		"body": [
+			"#[derive(PartialEq, Properties)]",
+			"pub struct ${1:ComponentName}Props {}",
+			"",
+			"#[function_component]",
+			"pub fn $1(props: &${1}Props) -> Html {",
+			"    let ${1}Props {} = props;",
+			"    html! {",
+			"        <${2:div}>$0</${2}>",
+			"    }",
+			"}"
+		],
+		"description": "Create a minimal Yew function component"
+	},
+	"New Yew struct component": {
+		"prefix": "yewsc",
+		"body": [
+			"pub struct ${1:ComponentName};",
+			"",
+			"pub enum ${1}Msg {",
+			"}",
+			"",
+			"impl Component for ${1} {",
+			"    type Message = ${1}Msg;",
+			"    type Properties = ();",
+			"",
+			"    fn create(ctx: &Context<Self>) -> Self {",
+			"        Self",
+			"    }",
+			"",
+			"    fn view(&self, ctx: &Context<Self>) -> Html {",
+			"        html! {",
+			"            $0",
+			"        }",
+			"    }",
+			"}"
+		],
+		"description": "Create a new Yew component with a message enum"
+	}
+}
