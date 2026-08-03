@@ -32,6 +32,8 @@ local function bind_app_shortcut(shortcut, app)
 	end)
 end
 
+hl.exec_cmd("notify-send" .. apps.editor.start_cmd)
+
 -- Don't focus on browser and terminal
 hl.bind(main_mod .. "Q", hl.dsp.exec_cmd(apps.terminal))
 hl.bind(main_mod .. "A", hl.dsp.exec_cmd(apps.browser))
@@ -39,10 +41,9 @@ hl.bind(main_mod .. "A", hl.dsp.exec_cmd(apps.browser))
 bind_app_shortcut(main_mod .. "S", apps.spotify)
 bind_app_shortcut(main_mod .. "D", apps.discord)
 bind_app_shortcut(main_mod .. "E", apps.fileManager)
-bind_app_shortcut(main_mod .. "V", apps.code_editor)
+bind_app_shortcut(main_mod .. "V", apps.editor)
 bind_app_shortcut(main_mod .. "O", apps.notes)
 bind_app_shortcut(main_mod .. "SHIFT+A", "steam")
-bind_app_shortcut(main_mod .. "SHIFT+E", apps.editor)
 
 hl.bind(main_mod .. "X", hl.dsp.focus({ last = true }))
 
@@ -72,7 +73,9 @@ hl.bind(main_mod .. "SHIFT+CTRL+TAB", hl.dsp.exit())
 hl.bind(main_mod .. "P", hl.dsp.exec_cmd(apps.local_bin .. "/phone-camera 1"))
 hl.bind(main_mod .. "ALT+P", hl.dsp.exec_cmd(apps.local_bin .. "/phone-camera 2"))
 
-hl.bind(main_mod .. "N", hl.dsp.exec_cmd("notify-send \"$(" .. apps.cargo_bin .. "/kdeconnect_waybar -n -c notifications | jq .tooltip -r)\""))
+hl.bind(main_mod .. "N",
+	hl.dsp.exec_cmd("notify-send \"$(" ..
+	apps.cargo_bin .. "/kdeconnect_waybar -n -c notifications | jq .tooltip -r)\""))
 
 --ROFI
 hl.bind(main_mod .. "R", hl.dsp.exec_cmd("rofi -show run"))
@@ -213,13 +216,21 @@ hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"),
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"),
 	{ locked = true, repeating = true })
 
-hl.bind("SUPER + XF86AudioRaiseVolume", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume +"), { locked = true })
-hl.bind("SUPER + XF86AudioLowerVolume", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume -"), { locked = true })
+hl.bind(main_mod .. "XF86AudioRaiseVolume", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume +"), { locked = true })
+hl.bind(main_mod .. "XF86AudioLowerVolume", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume -"), { locked = true })
 
 -- Requires playerctl
+hl.bind(main_mod .. "CTRL + L", hl.dsp.exec_cmd("playerctl next"), { locked = true })
+hl.bind(main_mod .. "CTRL + H", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+hl.bind(main_mod .. "CTRL + K", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+	{ locked = true, repeating = true })
+hl.bind(main_mod .. "CTRL + J", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-"),
+	{ locked = true, repeating = true })
+hl.bind(main_mod .. "CTRL + ALT + K", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume +"), { locked = true })
+hl.bind(main_mod .. "CTRL + ALT + J", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume -"), { locked = true })
+
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("Pause", hl.dsp.exec_cmd("playerctl play-pause"))
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
-

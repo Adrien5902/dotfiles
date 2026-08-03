@@ -3,17 +3,22 @@ require("hyprland.hostname")
 -------------------------
 ------ MY PROGRAMS ------
 -------------------------
+
+local function tui(name)
+	return {
+		start_cmd = "kitty  -e " .. name,
+		selector = "title:" .. name,
+		table_selector = {
+			title = name
+		}
+	}
+end
+
 local low_performance = is_laptop
 
 local spotify
 if low_performance then
-	spotify = {
-		start_cmd = "kitty -e ncspot",
-		selector = "title:ncspot",
-		table_selector = {
-			title = "ncspot"
-		}
-	}
+	spotify = tui("ncspot")
 else
 	spotify = {
 		start_cmd = "spotify-launcher",
@@ -33,8 +38,7 @@ return {
 	discord = "discord",
 	spotify = spotify,
 	notes = "obsidian",
-	code_editor = "code",
-	editor = os.getenv("EDITOR") or "nvim",
+	editor = tui(os.getenv("EDITOR") or "nvim"),
 
 	-- Paths
 	local_bin = "$HOME/.local/bin",
