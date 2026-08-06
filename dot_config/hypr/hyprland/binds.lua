@@ -75,7 +75,7 @@ hl.bind(main_mod .. "ALT+P", hl.dsp.exec_cmd(apps.local_bin .. "/phone-camera 2"
 
 hl.bind(main_mod .. "N",
 	hl.dsp.exec_cmd("notify-send \"$(" ..
-	apps.cargo_bin .. "/kdeconnect_waybar -n -c notifications | jq .tooltip -r)\""))
+		apps.cargo_bin .. "/kdeconnect_waybar -n -c notifications | jq .tooltip -r)\""))
 
 --ROFI
 hl.bind(main_mod .. "R", hl.dsp.exec_cmd("rofi -show run"))
@@ -88,6 +88,38 @@ hl.bind(main_mod .. "SHIFT + E", hl.dsp.exec_cmd("rofi -modi emoji -show emoji")
 hl.bind(main_mod .. "SHIFT + P",
 	hl.dsp.exec_cmd("rofi -show power-menu -modi power-menu:" .. apps.local_bin .. "/rofi-power-menu"))
 hl.bind(main_mod .. "SHIFT + D", hl.dsp.exec_cmd(apps.local_bin .. "/dmenudunsthistory"))
+
+-----------------
+--- Vim style ---
+-----------------
+
+local vim_submap_key_pressed = false
+hl.bind("Escape", hl.dsp.submap("vim"))
+hl.define_submap("vim", function()
+	local directions = {
+		h = "Left",
+		j = "Down",
+		k = "Up",
+		l = "Right",
+	}
+
+	for key, dir in pairs(directions) do
+		hl.bind(key, function()
+			hl.dispatch(hl.dsp.send_shortcut({ mods = "", key = dir }))
+			vim_submap_key_pressed = true
+		end)
+	end
+end)
+
+hl.on("input.keyboard.key", function(keycode, _timestamp, status)
+	if keycode == 66 and status == 0 then -- Escape released
+		hl.dispatch(hl.dsp.submap("reset"))
+		if not vim_submap_key_pressed then
+			hl.dispatch(hl.dsp.send_shortcut({ key = "Escape", mods = "" }))
+		end
+		vim_submap_key_pressed = false
+	end
+end)
 
 -------------------------
 --- WINDOW MANAGEMENT ---
