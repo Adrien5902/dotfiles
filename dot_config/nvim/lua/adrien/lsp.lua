@@ -5,6 +5,7 @@ vim.lsp.config("*", {
 })
 
 vim.lsp.enable({
+	"nil_ls",
 	"crates",
 	"jsonls",
 	"just",
