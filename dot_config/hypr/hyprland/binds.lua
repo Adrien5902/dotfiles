@@ -73,9 +73,7 @@ hl.bind(main_mod .. "SHIFT+CTRL+TAB", hl.dsp.exit())
 hl.bind(main_mod .. "P", hl.dsp.exec_cmd(apps.local_bin .. "/phone-camera 1"))
 hl.bind(main_mod .. "ALT+P", hl.dsp.exec_cmd(apps.local_bin .. "/phone-camera 2"))
 
-hl.bind(main_mod .. "N",
-	hl.dsp.exec_cmd("notify-send \"$(" ..
-	apps.cargo_bin .. "/kdeconnect_waybar -n -c notifications | jq .tooltip -r)\""))
+hl.bind(main_mod .. "N", hl.dsp.exec_cmd("notify-send \"$(kdeconnect_waybar -n -c notifications | jq .tooltip -r)\""))
 
 --ROFI
 hl.bind(main_mod .. "R", hl.dsp.exec_cmd("rofi -show run"))

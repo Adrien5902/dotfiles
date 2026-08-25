@@ -31,3 +31,17 @@ end, { desc = "Toggle line wrapping" })
 vim.keymap.set('n', '<leader>i', function()
 	vim.cmd("InlayHintsToggle")
 end)
+
+-- Text Case
+local text_case = require("textcase")
+local function to_case(case)
+	return function()
+		text_case.current_word("to_" .. case)
+	end
+end
+
+vim.keymap.set("n", "<leader>cs", to_case("snake_case"))
+vim.keymap.set("n", "<leader>ct", to_case("title_case"))
+vim.keymap.set("n", "<leader>cc", to_case("camel_case"))
+vim.keymap.set("n", "<leader>cu", to_case("upper_case"))
+vim.keymap.set("n", "<leader>cl", to_case("lower_case"))

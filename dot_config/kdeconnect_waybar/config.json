@@ -4,7 +4,7 @@
 		{
 			"update_interval_secs": 1,
 			"format": "{DeviceInfo::DeviceTypeText}         {Battery::ChargePercent}% {Battery::ChargeTexts}",
-			"device_not_found_text": "",
+			"device_not_found_text": "x(            404  ",
 			"device_not_found_tooltip_text": "Device not found make sure kdeconnect is running and phone is connected",
 			"device_phone_text": "",
 			"device_tablet_text": "",
@@ -46,10 +46,11 @@
 		},
 		{
 			"update_interval_secs": 1,
+			"device_not_found_text": "",
 			"name": "notifications",
 			"format": "{Notification::Grouped}",
 			"tooltip_format": "{Notification::Single}",
-			"notification_grouped_format": "\u2007{CustomIcon} {CountText}\u2007",
+			"notification_grouped_format": "  {CustomIcon} {CountText} \u2009",
 			"notification_single_format": "  -{CustomIcon} : {Title}\n{Content}\n",
 			"app_icons": {
 				"": "",

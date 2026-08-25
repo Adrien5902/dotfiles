@@ -1,13 +1,13 @@
 {
     "custom/kdeconnect": {
         "format": "{}",
-        "exec": "/home/adrien/.cargo/bin/kdeconnect_waybar",
+        "exec": "kdeconnect_waybar",
         "return-type": "json",
         "on-click": ""
     },
     "custom/kdeconnect-notifications": {
         "format": "{}",
-        "exec": "/home/adrien/.cargo/bin/kdeconnect_waybar -c notifications",
+        "exec": "kdeconnect_waybar -c notifications",
         "return-type": "json",
         "on-click": ""
     },

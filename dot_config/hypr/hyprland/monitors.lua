@@ -28,21 +28,41 @@ local function update_vertical_monitor(is_vertical)
 	end
 end
 
-local function toggle_vertical()
-	vertical = not vertical
-	update_vertical_monitor(vertical)
-	hl.exec_cmd(apps.local_bin .. "/rlwpp")
+local low_res = false
+local function update_low_res(is_low_res)
+	if is_low_res then
+		hl.monitor({
+			output = "eDP-1",
+			mode = "1280x720@50.18700",
+			scale = 1,
+		})
+	else
+		hl.monitor({
+			output = "eDP-1",
+			mode = "1920x1080@50.18700",
+			scale = 1,
+		})
+	end
+end
+
+local function toggle_vertical_or_low_res()
+	if is_desktop then
+		vertical = not vertical
+		update_vertical_monitor(vertical)
+		hl.exec_cmd(apps.local_bin .. "/rlwpp")
+	end
+
+	if is_laptop then
+		low_res = not low_res
+		update_low_res(low_res)
+	end
 end
 
 
-hl.bind("SUPER + I", toggle_vertical)
+hl.bind("SUPER + I", toggle_vertical_or_low_res)
 
 if is_laptop then
-	hl.monitor({
-		output = "eDP-1",
-		mode = "1920x1080@50.18700",
-		scale = 1,
-	})
+	update_low_res(low_res)
 elseif is_desktop then
 	hl.monitor({
 		output = "DP-2",
