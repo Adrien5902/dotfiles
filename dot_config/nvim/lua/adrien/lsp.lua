@@ -7,6 +7,7 @@ vim.lsp.config("*", {
 vim.lsp.enable({
 	"crates",
 	"jsonls",
+	"just",
 	"lua_ls",
 	"ocamllsp",
 	"rust_analyser",

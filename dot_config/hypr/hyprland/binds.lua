@@ -103,24 +103,34 @@ local directions = {
 	l     = "r",
 }
 
+local function get_media_action_for_direction(dir)
+	if dir == "l" then
+		return hl.dsp.exec_cmd("playerctl previous"), { locked = true }
+	elseif dir == "r" then
+		return hl.dsp.exec_cmd("playerctl next"), { locked = true }
+	elseif dir == "u" then
+		return hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+		    { locked = true, repeating = true }
+	elseif dir == "d" then
+		return hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-"),
+		    { locked = true, repeating = true }
+	end
+end
+
 -- Focus windows
 for key, dir in pairs(directions) do
 	hl.bind(
 		main_mod .. key,
 		hl.dsp.focus({ direction = dir })
 	)
-end
 
--- Move windows
-for key, dir in pairs(directions) do
+	-- Move windows
 	hl.bind(
 		main_mod .. "SHIFT + " .. key,
 		hl.dsp.window.move({ direction = dir })
 	)
-end
 
--- Resize windows
-for key, dir in pairs(directions) do
+	-- Resize windows
 	local x = 0
 	local y = 0
 	local amount = 100
@@ -137,9 +147,16 @@ for key, dir in pairs(directions) do
 
 	hl.bind(
 		main_mod .. "ALT + " .. key,
-		hl.dsp.window.resize({ x = x, y = y, relative = true })
+		hl.dsp.window.resize({ x = x, y = y, relative = true }),
+		{ repeating = true }
 	)
+
+	local action, options = get_media_action_for_direction(dir)
+	hl.bind(main_mod .. "CTRL + " .. key, action, options)
 end
+
+hl.bind(main_mod .. "CTRL + ALT + K", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume +"), { locked = true })
+hl.bind(main_mod .. "CTRL + ALT + J", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume -"), { locked = true })
 
 local azerty_keys = {
 	"ampersand", -- 1
@@ -214,21 +231,17 @@ hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"),
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"),
 	{ locked = true, repeating = true })
 
-hl.bind(main_mod .. "XF86AudioRaiseVolume", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume +"), { locked = true })
-hl.bind(main_mod .. "XF86AudioLowerVolume", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume -"), { locked = true })
+hl.bind(main_mod .. "XF86AudioRaiseVolume", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume +"), { repeating = true })
+hl.bind(main_mod .. "XF86AudioLowerVolume", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume -"), { repeating = true })
 
 -- Requires playerctl
-hl.bind(main_mod .. "CTRL + L", hl.dsp.exec_cmd("playerctl next"), { locked = true })
-hl.bind(main_mod .. "CTRL + H", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
-hl.bind(main_mod .. "CTRL + K", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
-	{ locked = true, repeating = true })
-hl.bind(main_mod .. "CTRL + J", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-"),
-	{ locked = true, repeating = true })
-hl.bind(main_mod .. "CTRL + ALT + K", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume +"), { locked = true })
-hl.bind(main_mod .. "CTRL + ALT + J", hl.dsp.exec_cmd(apps.local_bin .. "/appvolume -"), { locked = true })
-
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("Pause", hl.dsp.exec_cmd("playerctl play-pause"))
+
+-- Mutex
+hl.bind(main_mod .. "CTRL + SHIFT + S", hl.dsp.exec_cmd("mutex set mute toggle"))
+hl.bind(main_mod .. "CTRL + SHIFT + D", hl.dsp.exec_cmd("mutex set deaf toggle"))
+hl.bind(main_mod .. "CTRL + SHIFT + L", hl.dsp.exec_cmd("mutex leave"))

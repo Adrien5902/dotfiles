@@ -4,6 +4,12 @@
 		"snippets": [
 			{
 				"language": [
+					"markdown"
+				],
+				"path": "markdown.jsonc"
+			},
+			{
+				"language": [
 					"rust"
 				],
 				"path": "rust.jsonc"
