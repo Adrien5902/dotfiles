@@ -1,86 +1,5 @@
+{ pkgs, ... }:
 {
-  config,
-  pkgs,
-  inputs,
-  ...
-}:
-{
-  home.username = "adrien";
-  home.homeDirectory = "/home/adrien";
-  home.stateVersion = "26.05";
-
-  imports = [
-    inputs.zen-browser.homeModules.beta
-  ];
-
-  # programs.kitty = {
-  #   enable = true;
-  #   shellIntegration.enableFishIntegration = true;
-  #   settings = {
-  #     shell = "fish";
-  #   };
-  # };
-  programs.waybar.enable = true;
-
-  programs.fish = {
-    enable = true;
-
-    shellAliases = {
-      we = "thunar . >/dev/null 2>&1 & disown";
-      rl = "source ~/.config/fish/config.fish";
-
-      ls = "eza";
-      du = "dust";
-      cat = "bat";
-      n = "nvim .";
-      c = "code .";
-      wlc = "wl-copy";
-      nixd = "nix develop --command fish";
-      nixe = "sudo -E -s nvim /etc/nixos/";
-      nixb = "sudo nixos-rebuild switch";
-    };
-
-    shellInit = ''
-      set -gx GITHUB_USERNAME Adrien5902
-      set -gx EDITOR nvim
-    '';
-
-    functions = {
-      # Optional: add your own fish functions here
-    };
-
-    interactiveShellInit = ''
-      zoxide init fish | source
-      starship init fish | source
-      set fish_greeting
-    '';
-  };
-
-  home.sessionPath = [
-    "$HOME/.local/bin"
-    "$HOME/.cargo/bin"
-    "$HOME/.spicetify"
-    "$HOME/.bun/bin"
-    "$HOME/.cache/.bun/bin"
-    "$HOME/go/bin"
-    "$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin"
-  ];
-
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      preload = [
-        "~/wallpapers/miku.png"
-      ];
-      wallpaper = [
-        {
-          monitor = "";
-          path = "~/wallpapers/miku.png";
-        }
-      ];
-    };
-  };
-
   programs.zen-browser = {
     enable = true;
     setAsDefaultBrowser = true;
@@ -319,24 +238,5 @@
       };
   };
 
-  programs.git = {
-    enable = true;
-    settings = {
-      user = {
-        name = "Adrien5902";
-        email = "adrien.m5902@gmail.com";
-      };
-      init.defaultBranch = "main";
-    };
-  };
-
-  programs.gh = {
-    enable = true;
-     gitCredentialHelper = {
-      enable = true;
-    };
-  };
-
-  home.packages = with pkgs; [
-  ];
 }
+

@@ -1,0 +1,20 @@
+{
+  inputs,
+  ...
+}:
+{
+  imports = [
+    inputs.zen-browser.homeModules.beta
+    ./home.nix
+    ./kitty.nix
+    # ./waybar.nix
+    ./starship.nix
+    ./fish.nix
+    ./session-path.nix
+    ./hyprpaper.nix
+    ./zen-browser.nix
+    ./git.nix
+    ./gh.nix
+    ./packages.nix
+  ];
+}

@@ -32,7 +32,7 @@
               useUserPackages = true;
               useGlobalPkgs = true;
               extraSpecialArgs = { inherit inputs; };
-              users.adrien = ./adrien.nix;
+              users.adrien = ./home-adrien;
             };
           }
         ];
