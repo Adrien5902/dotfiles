@@ -78,17 +78,19 @@ in
     hyprpicker
     hyprpaper
     # clipvault
+
     # TUI Apps
     gitui
     playerctl
     ffmpeg
-    chezmoi
     bluetui
     # wlctl
     neovim
     git
     fish
     fzf
+    htop
+    # nvtop
 
     # Apps
     kitty
@@ -108,6 +110,8 @@ in
     ripgrep
     just
     gh
+    zip
+    unzip
 
     # LSPs
     nil

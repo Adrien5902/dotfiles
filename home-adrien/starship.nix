@@ -37,7 +37,7 @@
         format = "[ $path ]($style)";
         truncation_length = 3;
         truncation_symbol = "…/";
-        substitutions = { Documents = "󰈙 "; Downloads = " "; Music = "󰝚 "; Pictures = " "; Developer = "󰲋 "; };
+        substitutions = { Documents = "󰈙 "; Downloads = " "; Music = "󰝚 "; Pictures = " "; Projects = "󰲋 "; };
       };
       git_branch = { symbol = ""; style = "bg:color_3"; format = "[[ $symbol $branch ](fg:color_fg0 bg:color_3)]($style)"; };
       git_status = { style = "bg:color_3"; format = "[[($all_status$ahead_behind )](fg:color_fg0 bg:color_3)]($style)"; };

@@ -130,6 +130,8 @@
         settings = {
           "zen.welcome-screen.seen" = true;
           "zen.workspaces.continue-where-left-off" = true;
+          "zen.tabs.ctrl-tab.ignore-pending-tabs" = true;
+
           "browser.tabs.allow_transparent_browser" = true;
           "zen.widget.linux.transparency" = true;
           "zen.view.grey-out-inactive-windows" = false;
