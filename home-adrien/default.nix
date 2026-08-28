@@ -7,6 +7,7 @@
     inputs.zen-browser.homeModules.beta
     ./home.nix
     ./kitty.nix
+    ./rofi.nix
     # ./waybar.nix
     ./starship.nix
     ./fish.nix

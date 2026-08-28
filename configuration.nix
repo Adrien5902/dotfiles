@@ -74,9 +74,6 @@ in
     # Shell Customization
     waybar
     # quickshell
-    rofi
-    rofi-games
-    rofi-emoji
     dunst
     hyprpicker
     hyprpaper
