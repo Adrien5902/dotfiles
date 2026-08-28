@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "adrien5902s-hyprcursors": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787930602,
+        "narHash": "sha256-Vwligc5V/0aJElaiGvnRUEHlarKtVeQ0egZ/AcCrjE8=",
+        "owner": "Adrien5902",
+        "repo": "hyprcursors",
+        "rev": "1fa1d43d14ee5507b52b44e14abeacf5ee0b5288",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Adrien5902",
+        "repo": "hyprcursors",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -38,6 +58,7 @@
     },
     "root": {
       "inputs": {
+        "adrien5902s-hyprcursors": "adrien5902s-hyprcursors",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "zen-browser": "zen-browser"

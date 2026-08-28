@@ -16,6 +16,7 @@
     ./zen-browser
     ./git.nix
     ./gh.nix
+    ./cursor.nix
     ./packages.nix
   ];
 }

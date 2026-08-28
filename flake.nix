@@ -13,6 +13,10 @@
         home-manager.follows = "home-manager";
       };
     };
+    adrien5902s-hyprcursors = {
+      url = "github:Adrien5902/hyprcursors";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
