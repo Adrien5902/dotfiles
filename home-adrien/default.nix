@@ -12,7 +12,7 @@
     ./fish.nix
     ./session-path.nix
     ./hyprpaper.nix
-    ./zen-browser.nix
+    ./zen-browser
     ./git.nix
     ./gh.nix
     ./packages.nix
