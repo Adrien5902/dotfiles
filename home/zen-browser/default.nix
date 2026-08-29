@@ -50,17 +50,21 @@
                 type = "gradient";
                 colors = [
                   {
-                    #021831
-                    red = 2;
-                    green = 24;
-                    blue = 49;
+                    red = 24;
+                    green = 14;
+                    blue = 37;
                     algorithm = "floating";
                   }
-                  #271402
                   {
-                    red = 39;
-                    green = 20;
-                    blue = 2;
+                    red = 14;
+                    green = 23;
+                    blue = 37;
+                    algorithm = "floating";
+                  }
+                  {
+                    red = 37;
+                    green = 14;
+                    blue = 31;
                     algorithm = "floating";
                   }
                 ];
@@ -157,3 +161,5 @@
       };
   };
 }
+
+
