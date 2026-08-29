@@ -4,13 +4,15 @@
 
 # Apps
 ## Gaming
-- [ ] steam
-- [ ] heroic
+- [X] steam
+- [X] heroic
 - [ ] sober
 - [ ] pandora launcher
+- [ ] minecraft nix servers
 
 ## Other
 - [ ] hyprland (although i plan on keeping lua there's still things to configure)
+- [X] wallpapers
 - [ ] nvim (lazy -> nix)
 - [ ] spotify with spicetify
 - [ ] waybar

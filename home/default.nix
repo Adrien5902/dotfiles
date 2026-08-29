@@ -13,7 +13,7 @@
     ./starship.nix
     ./fish.nix
     ./session-path.nix
-    ./wallpaper.nix
+    ./wallpaper
     ./zen-browser
     ./git.nix
     ./gh.nix

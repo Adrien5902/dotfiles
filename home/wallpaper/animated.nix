@@ -1,20 +1,4 @@
-{ pkgs, ... }:
 {
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      preload = [
-        "~/wallpapers/miku.png"
-      ];
-      wallpaper = [
-        {
-          monitor = "";
-          path = "~/wallpapers/miku.png";
-        }
-      ];
-    };
-  };
-
   # wallpaper_boygreen=3445801440
   # wallpaper_firefly=3687793845
   services.linux-wallpaperengine = {

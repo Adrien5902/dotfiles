@@ -45,7 +45,7 @@
                 useUserPackages = true;
                 extraSpecialArgs = { inherit inputs; };
 
-                users.adrien = import ./home;
+                users.adrien = import ./hosts/${hostname}/home.nix;
               };
             }
           ];

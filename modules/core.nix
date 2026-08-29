@@ -60,7 +60,6 @@ in
     gnumake
 
     keyd
-    hyprpaper
 
     pkg-config
     dbus
@@ -70,7 +69,6 @@ in
     # quickshell
     dunst
     hyprpicker
-    hyprpaper
     # clipvault
 
     # TUI Apps

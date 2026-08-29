@@ -15,7 +15,8 @@
       wlc = "wl-copy";
       nixd = "nix develop --command fish";
       nixe = "sudo -E -s nvim /etc/nixos/";
-      nixb = "sudo nixos-rebuild switch";
+      nixbu = "sudo nixos-rebuild switch --flake /etc/nixos#unowhy";
+      nixba = "sudo nixos-rebuild switch --flake /etc/nixos#archrien";
     };
 
     shellInit = ''
