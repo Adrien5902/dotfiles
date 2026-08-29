@@ -21,7 +21,7 @@ if low_performance then
 	spotify = tui("ncspot")
 else
 	spotify = {
-		start_cmd = "spotify-launcher",
+		start_cmd = "spotify",
 		selector = "class:Spotify",
 		table_selector = {
 			class = "Spotify"
@@ -34,7 +34,7 @@ return {
 	-- Apps
 	terminal = "kitty",
 	fileManager = "thunar",
-	browser = "zen-browser",
+	browser = "zen-beta",
 	discord = "discord",
 	spotify = spotify,
 	notes = "obsidian",
