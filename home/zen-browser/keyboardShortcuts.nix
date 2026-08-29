@@ -43,7 +43,7 @@ in
   }
   {
     id = "key_restoreLastClosedTabOrWindowOrSession";
-    key = "t";
+    key = "q";
     modifiers = {
       control = true;
       shift = true;
