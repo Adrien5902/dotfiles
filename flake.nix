@@ -18,28 +18,42 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
   outputs =
     {
-      self,
       nixpkgs,
       home-manager,
       ...
     }@inputs:
+    let
+      system = "x86_64-linux";
+
+      mkHost =
+        hostname:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+
+          modules = [
+            ./hosts/${hostname}
+
+            home-manager.nixosModules.home-manager
+
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
+
+                users.adrien = import ./home;
+              };
+            }
+          ];
+        };
+    in
     {
-      nixosConfigurations.unowhynotarch = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./configuration.nix
-          home-manager.nixosModules.default
-          {
-            home-manager = {
-              useUserPackages = true;
-              useGlobalPkgs = true;
-              extraSpecialArgs = { inherit inputs; };
-              users.adrien = ./home-adrien;
-            };
-          }
-        ];
+      nixosConfigurations = {
+        desktop = mkHost "desktop";
+        unowhy = mkHost "unowhy";
       };
     };
 }

@@ -3,9 +3,10 @@
   ...
 }:
 {
+  home.username = "adrien";
+  home.stateVersion = "26.05";
   imports = [
     inputs.zen-browser.homeModules.beta
-    ./home.nix
     ./kitty.nix
     ./rofi.nix
     # ./waybar.nix
