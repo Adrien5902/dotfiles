@@ -29,6 +29,14 @@ else
 	}
 end
 
+local obsidian = {
+	start_cmd = "obsidian",
+	selector = "class:md.obsidian.Obsidian",
+	table_selector = {
+		class = "md.obsidian.Obsidian"
+	}
+}
+
 -- Set programs that you use
 return {
 	-- Apps
@@ -37,7 +45,7 @@ return {
 	browser = "zen-browser",
 	discord = "discord",
 	spotify = spotify,
-	notes = "obsidian",
+	notes = obsidian,
 	editor = tui(os.getenv("EDITOR") or "nvim"),
 
 	-- Paths
