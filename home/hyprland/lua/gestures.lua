@@ -2,7 +2,7 @@
 --- GESTURES---
 ---------------
 
-local apps = require("hyprland.apps")
+local apps = require("lua.apps")
 
 hl.gesture({ mods = "SUPER", fingers = 3, direction = "down", action = "close" })
 hl.gesture({ mods = "SUPER", fingers = 3, direction = "up", action = "fullscreen" })

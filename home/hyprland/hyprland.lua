@@ -6,19 +6,19 @@
 
 -- You can split this configuration into multiple files
 -- Create your files separately and then link them to this file like this:
-require("hyprland.hostname")
+require("lua.hostname")
 
-require("hyprland.animations")
-require("hyprland.monitors")
-require("hyprland.variables")
-require("hyprland.input")
-require("hyprland.windows_and_workspaces")
+require("lua.animations")
+require("lua.monitors")
+require("lua.variables")
+require("lua.input")
+require("lua.windows_and_workspaces")
 
 -----------------------
 ------ AUTOSTART ------
 -----------------------
 
-local start = require("hyprland.start")
+local start = require("lua.start")
 hl.on("hyprland.start", start)
 
 -----------------------------------
@@ -32,7 +32,7 @@ hl.env("HYPRCURSOR_SIZE", 24)
 
 local binds_disabled = false
 if not binds_disabled then
-	require("hyprland.binds")
+	require("lua.binds")
 end
 
 local function toggleBinds()
@@ -55,7 +55,7 @@ hl.bind("SUPER+ALT+M", toggleBinds)
 -- }
 
 -- permission = /usr/(bin|local/bin)/grim, screencopy, allow
--- permission = /usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland, screencopy, allow
+-- permission = /usr/(lib|libexec|lib64)/xdg-desktop-portal-lua. screencopy, allow
 -- permission = /usr/(bin|local/bin)/hyprpm, plugin, allow
 
 
@@ -64,5 +64,5 @@ hl.bind("SUPER+ALT+M", toggleBinds)
 ---------------
 
 if is_laptop then
-	require("hyprland.gestures")
+	require("lua.gestures")
 end

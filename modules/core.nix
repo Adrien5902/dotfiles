@@ -57,6 +57,7 @@ in
     opam
     clang
     llvmPackages.bintools
+    gnumake
 
     keyd
     hyprpaper

@@ -40,6 +40,7 @@
 
             {
               home-manager = {
+                backupFileExtension = "backup";
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 extraSpecialArgs = { inherit inputs; };
@@ -52,7 +53,7 @@
     in
     {
       nixosConfigurations = {
-        desktop = mkHost "desktop";
+        archrien = mkHost "archrien";
         unowhy = mkHost "unowhy";
       };
     };

@@ -1,5 +1,5 @@
-local apps = require("hyprland.apps")
-local start = require("hyprland.start")
+local apps = require("lua.apps")
+local start = require("lua.start")
 
 -------------------------
 ------ KEYBINDINGS ------

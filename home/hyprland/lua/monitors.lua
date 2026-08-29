@@ -1,5 +1,5 @@
-require("hyprland.hostname")
-local apps = require("hyprland.apps")
+require("lua.hostname")
+local apps = require("lua.apps")
 
 ----------------------
 ------ MONITORS ------

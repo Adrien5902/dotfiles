@@ -1,4 +1,4 @@
-require("hyprland.hostname")
+require("lua.hostname")
 
 -------------------------
 ------ MY PROGRAMS ------

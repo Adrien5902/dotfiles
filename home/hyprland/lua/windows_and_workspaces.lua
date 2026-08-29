@@ -1,4 +1,4 @@
-local apps = require("hyprland.apps")
+local apps = require("lua.apps")
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
