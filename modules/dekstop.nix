@@ -66,6 +66,8 @@
     dunst
     hyprpicker
     # clipvault
+    grim
+    slurp
 
     # TUI Apps
     gitui

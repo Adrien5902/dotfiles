@@ -23,7 +23,7 @@
 - [X] git
 - [X] gh
 - [X] keyd
-- [ ] grim slurp
+- [X] grim slurp
 - [ ] thunar
 - [ ] gtk theme
 - [ ] adb
