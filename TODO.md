@@ -14,7 +14,7 @@
 - [ ] hyprland (although i plan on keeping lua there's still things to configure)
 - [X] wallpapers
 - [ ] nvim (lazy -> nix)
-- [ ] spotify with spicetify
+- [X] spotify with spicetify
 - [ ] waybar
 - [X] starship
 - [ ] rofi

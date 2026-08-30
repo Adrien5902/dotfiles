@@ -88,7 +88,6 @@ in
     kitty
     thunar
     discord
-    spotify
     ncspot
 
     # Cli tools

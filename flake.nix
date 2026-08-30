@@ -17,6 +17,11 @@
       url = "github:Adrien5902/hyprcursors";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-cat = {
+      url = "github:Adrien5902/SpicetifyCat";
+      flake = false;
+    };
   };
 
   outputs =

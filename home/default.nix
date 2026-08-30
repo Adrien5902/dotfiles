@@ -19,6 +19,7 @@
     ./gh.nix
     ./cursor.nix
     ./packages.nix
+    ./spicetify.nix
   ];
 
   home.file.".config/hypr/hyprland.lua".source = ./hyprland/hyprland.lua;
