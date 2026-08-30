@@ -14,20 +14,13 @@ local function tui(name)
 	}
 end
 
-local low_performance = is_laptop
-
-local spotify
-if low_performance then
-	spotify = tui("ncspot")
-else
-	spotify = {
-		start_cmd = "spotify",
-		selector = "class:Spotify",
-		table_selector = {
-			class = "Spotify"
-		}
+local spotify = {
+	start_cmd = "spotify",
+	selector = "class:Spotify",
+	table_selector = {
+		class = "Spotify"
 	}
-end
+}
 
 -- Set programs that you use
 return {

@@ -84,7 +84,6 @@
     kitty
     thunar
     discord
-    ncspot
 
     # Cli tools
     starship
