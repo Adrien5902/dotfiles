@@ -1,0 +1,5 @@
+[
+  "desktop"
+  "dev"
+  "gaming"
+]

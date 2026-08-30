@@ -15,7 +15,7 @@
       wlc = "wl-copy";
       suuu = "sudo -Es fish";
       nixd = "nix develop --command fish";
-      nixbu = "sudo nixos-rebuild switch --flake /etc/nixos#unowhy";
+      nixbu = "sudo nixos-rebuild switch --flake /etc/nixos#unowhynotarch";
       nixba = "sudo nixos-rebuild switch --flake /etc/nixos#archrien";
     };
 

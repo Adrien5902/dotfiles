@@ -32,34 +32,51 @@
     }@inputs:
     let
       system = "x86_64-linux";
+      featuresModule = import ./features.nix;
 
-      mkHost =
-        hostname:
-        nixpkgs.lib.nixosSystem {
-          inherit system;
+      mkHosts =
+        hostnames:
+        builtins.listToAttrs (
+          map (hostname: {
+            name = hostname;
+            value =
+              let
+                hostTags = import ./hosts/${hostname}/tags.nix;
+                enabledFeatures = featuresModule.enabledFeatures hostTags;
+              in
+              nixpkgs.lib.nixosSystem {
+                inherit system;
 
-          modules = [
-            ./hosts/${hostname}
+                modules = [
+                  ./hosts/${hostname}
 
-            home-manager.nixosModules.home-manager
+                  home-manager.nixosModules.home-manager
 
-            {
-              home-manager = {
-                backupFileExtension = "backup";
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = { inherit inputs; };
+                  {
+                    networking.hostName = hostname;
+                    system.stateVersion = "26.11";
 
-                users.adrien = import ./hosts/${hostname}/home.nix;
+                    home-manager = {
+                      backupFileExtension = "backup";
+                      useGlobalPkgs = true;
+                      useUserPackages = true;
+                      extraSpecialArgs = { inherit inputs; };
+
+                      users.adrien = {
+                        imports = builtins.filter (home: home != null) (map (feature: feature.home) enabledFeatures);
+                      };
+                    };
+                  }
+                ]
+                ++ builtins.filter (module: module != null) (map (feature: feature.module) enabledFeatures);
               };
-            }
-          ];
-        };
+          }) hostnames
+        );
     in
     {
-      nixosConfigurations = {
-        archrien = mkHost "archrien";
-        unowhy = mkHost "unowhy";
-      };
+      nixosConfigurations = mkHosts [
+        "archrien"
+        "unowhynotarch"
+      ];
     };
 }
