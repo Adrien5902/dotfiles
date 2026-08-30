@@ -13,8 +13,8 @@
       n = "nvim .";
       c = "code .";
       wlc = "wl-copy";
+      suuu = "sudo -Es fish";
       nixd = "nix develop --command fish";
-      nixe = "sudo -E -s nvim /etc/nixos/";
       nixbu = "sudo nixos-rebuild switch --flake /etc/nixos#unowhy";
       nixba = "sudo nixos-rebuild switch --flake /etc/nixos#archrien";
     };
