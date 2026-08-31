@@ -2,4 +2,5 @@
   "desktop"
   "dev"
   "gaming"
+  "flatpak"
 ]

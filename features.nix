@@ -31,6 +31,7 @@ rec {
   tags = mkTags [
     "desktop"
     "dev"
+    "flatpak"
     "gaming"
   ];
 
@@ -55,7 +56,7 @@ rec {
         desktop
         gaming
       ];
-      module = ./modules/gaming.nix;
+      module = ./modules/gaming;
     };
 
     animated-wallpaper = feature {
@@ -65,6 +66,19 @@ rec {
         gaming
       ];
       home = ./home/wallpaper/animated.nix;
+    };
+
+    flatpak = feature {
+      tags = with tags; [ flatpak ];
+      module = ./modules/flatpak.nix;
+    };
+
+    roblox = feature {
+      tags = with tags; [
+        gaming
+        flatpak
+      ];
+      module = ./modules/gaming/roblox.nix;
     };
   };
 }

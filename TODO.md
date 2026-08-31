@@ -6,7 +6,7 @@
 ## Gaming
 - [X] steam
 - [X] heroic
-- [ ] sober
+- [X] sober
 - [ ] pandora launcher
 - [ ] minecraft nix servers
 
@@ -15,7 +15,7 @@
 - [X] wallpapers
 - [ ] nvim (lazy -> nix)
 - [X] spotify with spicetify
-- [ ] waybar
+- [ ] waybar (mostly done)
 - [X] starship
 - [ ] rofi
 - [ ] kitty/ghosty

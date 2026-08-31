@@ -26,6 +26,7 @@
       url = "github:wneessen/waybar-weather";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
   };
 
   outputs =
@@ -47,7 +48,15 @@
               let
                 hostTags = import ./hosts/${hostname}/tags.nix;
                 enabledFeatures = featuresModule.enabledFeatures hostTags;
-		specialArgs = { inherit inputs featuresModule hostname hostTags system; };
+                specialArgs = {
+                  inherit
+                    inputs
+                    featuresModule
+                    hostname
+                    hostTags
+                    system
+                    ;
+                };
               in
               nixpkgs.lib.nixosSystem {
                 inherit system specialArgs;
