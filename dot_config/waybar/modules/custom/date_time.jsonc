@@ -1,9 +1,0 @@
-{
-    "group/date_time": {
-        "orientation": "horizontal",
-        "modules": [
-            "clock#time",
-            "clock#date"
-        ]
-    }
-}

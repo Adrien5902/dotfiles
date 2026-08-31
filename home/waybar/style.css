@@ -1,0 +1,231 @@
+@define-color text #cdd6f4;
+@define-color lavande #efb4ff;
+@define-color lanterne #e47cff;
+@define-color violet #C249DF;
+@define-color pinky-red #FF00A1;
+@define-color ciel #67c9ff;
+@define-color marine #0e3063;
+@define-color gris #595959;
+@define-color crust #11111b;
+@define-color noir #08101a;
+@define-color vert #2c5535;
+
+* {
+	all: initial;
+	/* Reset GTK theme */
+	font-family: "Noto Nerd Font";
+	font-weight: bold;
+	font-size: 16px;
+}
+
+#waybar>box {
+	padding: 0 4px;
+}
+
+button {
+	border-radius: 16px;
+	min-width: 16px;
+	padding: 0 10px;
+}
+
+#tray menu,
+tooltip {
+	border: 2px solid @ciel;
+	border-radius: 10px;
+	background-color: @marine;
+}
+
+#tray menu menuitem,
+tooltip label {
+	color: @violet;
+	text-shadow: 1px 1px 4px @violet;
+}
+
+#tray menu,
+tooltip>box {
+	padding: 0 6px;
+}
+
+
+#battery {
+	margin-right: 1px;
+}
+
+
+#date_time {
+	background-image: url("file:///home/adrien/.config/waybar/assets/date_time.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	padding-right: 32px;
+	padding-left: 28px;
+}
+
+/*----------
+    Time
+----------*/
+
+#clock.time {
+	font-size: 24px;
+	font-family: "DS\-Digital";
+}
+
+#window label,
+#mpris,
+tooltip label {
+	font-weight: normal;
+}
+
+#workspaces button.active label,
+#workspaces button.focused label,
+#custom-distro {
+	font-size: 20px;
+}
+
+#custom-power {
+	font-size: 18px;
+}
+
+#custom-left_div,
+#custom-left_inv,
+#custom-right_div,
+#custom-right_inv {
+	font-size: 22px;
+}
+
+#custom-kdeconnect {
+    background-image: url("file:///home/adrien/.config/waybar/assets/phone_status.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0 12px;
+}
+
+#custom-kdeconnect-notifications {
+    background-image: url("file:///home/adrien/.config/waybar/assets/notification.png");
+    background-position: 0 center;
+    background-repeat: repeat-x;
+}
+
+#group-kdeconnect {
+    margin: 8px;
+}
+
+#taskbar {
+    background-image: url("file:///home/adrien/.config/waybar/assets/media_controls.png");
+    background-position: 0 center;
+    background-repeat: repeat-x;
+    margin: 0 12px;
+}
+
+#media_controls {
+    background-image: url("file:///home/adrien/.config/waybar/assets/media_controls.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0 16px;
+}
+
+#custom-switch_sink {
+    padding-right: 6px;
+}
+
+#custom-prev,
+#mpris,
+#custom-next {
+    background-color: @tray;
+    padding: 0 6px;
+}
+
+#workspaces {
+    padding: 0 1px;
+    background-color: @workspaces;
+}
+
+#workspaces button.active label,
+#workspaces button.focused label {
+    color: @accent;
+}
+
+#mpris.songdetails {
+	font-weight: bold;
+	background-image: url("file:///home/adrien/.config/waybar/assets/song_details.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 0 18px;
+}
+
+#specs {
+    background-image: url("file:///home/adrien/.config/waybar/assets/song_details.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-right: 24px;
+}
+
+#specs * {
+    margin: 0 4px;
+}
+
+.module {
+	color: @pinky-red;
+	text-shadow: 1px 1px 6px @violet;
+}
+
+.module:hover {
+	color: @violet;
+}
+
+/* Inactive states */
+#idle_inhibitor.deactivated,
+#mpris.paused,
+#pulseaudio.output.muted,
+#pulseaudio.input.source-muted,
+#wireplumber.muted {
+	color: @violet;
+}
+
+#memory.warning,
+#cpu.warning,
+#battery.warning {
+	color: @warning;
+}
+
+#temperature.critical,
+#memory.critical,
+#cpu.critical,
+#battery.critical {
+	color: @critical;
+}
+
+#battery.charging {
+	color: @charging;
+}
+
+#custom-weather {
+    background-image: url("file:///home/adrien/.config/waybar/assets/media_controls.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0 60px;
+}
+
+#workspaces_and_power #custom-power {
+	margin-right: 12px;
+	margin-left: 4px;
+	margin-top: 6px;
+}
+
+#workspaces_and_battery #custom-power {
+	margin-right: 6px;
+	margin-left: 4px;
+	margin-top: 6px;
+}
+
+#custom-hyprland_workspace_0,
+#custom-hyprland_workspace_1 {
+	padding: 0px 12px;
+}
+
+#workspaces_and_battery,
+#workspaces_and_power {
+	padding: 0px 30px;
+	background-image: url("file:///home/adrien/.config/waybar/assets/workspaces_and_power.png");
+	background-position: center;
+	background-repeat: no-repeat;
+}

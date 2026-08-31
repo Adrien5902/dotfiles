@@ -76,6 +76,7 @@
         "nixpkgs": "nixpkgs",
         "spicetify-cat": "spicetify-cat",
         "spicetify-nix": "spicetify-nix",
+        "waybar-weather": "waybar-weather",
         "zen-browser": "zen-browser"
       }
     },
@@ -126,6 +127,26 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "waybar-weather": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783937232,
+        "narHash": "sha256-LUm3+VpU6vt/CMDy40C6p+IkEMQffAx3Qp11DB9nzfk=",
+        "owner": "wneessen",
+        "repo": "waybar-weather",
+        "rev": "da2ce93ae4b0b9fc197053351b7b17180510aef9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wneessen",
+        "repo": "waybar-weather",
         "type": "github"
       }
     },

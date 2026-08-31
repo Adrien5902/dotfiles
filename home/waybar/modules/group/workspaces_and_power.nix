@@ -1,0 +1,8 @@
+{
+  orientation = "horizontal";
+  modules = [
+    "custom/hyprland_workspace_0"
+    "custom/power"
+    "custom/hyprland_workspace_1"
+  ];
+}

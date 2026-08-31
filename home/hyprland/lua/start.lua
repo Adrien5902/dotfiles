@@ -7,6 +7,7 @@ local apps = require("lua.apps")
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 function start()
+    hl.exec_cmd("waybar")
     hl.exec_cmd("cd ~/projects/uhu-wattou && " .. apps.cargo_bin .. "/uhu-wattou")
     hl.exec_cmd("wl-paste --watch clipvault store")
     hl.exec_cmd("xrandr --output DP-2 --primary")

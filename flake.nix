@@ -22,6 +22,10 @@
       url = "github:Adrien5902/SpicetifyCat";
       flake = false;
     };
+    waybar-weather = {
+      url = "github:wneessen/waybar-weather";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -43,9 +47,10 @@
               let
                 hostTags = import ./hosts/${hostname}/tags.nix;
                 enabledFeatures = featuresModule.enabledFeatures hostTags;
+		specialArgs = { inherit inputs featuresModule hostname hostTags system; };
               in
               nixpkgs.lib.nixosSystem {
-                inherit system;
+                inherit system specialArgs;
 
                 modules = [
                   ./hosts/${hostname}
@@ -60,7 +65,7 @@
                       backupFileExtension = "backup";
                       useGlobalPkgs = true;
                       useUserPackages = true;
-                      extraSpecialArgs = { inherit inputs; };
+                      extraSpecialArgs = specialArgs;
 
                       users.adrien = {
                         imports = builtins.filter (home: home != null) (map (feature: feature.home) enabledFeatures);

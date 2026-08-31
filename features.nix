@@ -37,7 +37,7 @@ rec {
   features = {
     desktop = feature {
       tags = with tags; [ desktop ];
-      module = ./modules/dekstop.nix;
+      module = ./modules/desktop.nix;
       home = ./home/desktop.nix;
     };
 

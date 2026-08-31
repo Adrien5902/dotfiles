@@ -1,0 +1,6 @@
+{
+  exec = "$HOME/waybar-ycal/bar.py";
+  on-click = "$HOME/waybar-ycal/toggle.sh";
+  interval = 60;
+  return-type = "json";
+}

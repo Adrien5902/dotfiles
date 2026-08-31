@@ -1,11 +1,10 @@
-{ inputs, pkgs, ... }: {
+{ inputs, system, ... }: {
   imports = [
     inputs.spicetify-nix.homeManagerModules.spicetify
   ];
 
   programs.spicetify =
     let
-      system = pkgs.stdenv.system;
       spicePkgs = inputs.spicetify-nix.legacyPackages.${system};
     in
     {

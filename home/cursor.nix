@@ -1,6 +1,5 @@
-{ pkgs, inputs, ... }:
+{ system, inputs, ... }:
 let
-  system = pkgs.stdenv.system;
   cursor = "miku-cat";
 in
 {

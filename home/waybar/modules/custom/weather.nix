@@ -1,0 +1,7 @@
+{
+  exec = "waybar-weather";
+  restart-interval = 60;
+  return-type = "json";
+  hide-empty-text = true;
+  on-click = "pkill -USR1 waybar-weather";
+}

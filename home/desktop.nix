@@ -9,7 +9,6 @@
     inputs.zen-browser.homeModules.beta
     ./kitty.nix
     ./rofi.nix
-    # ./waybar.nix
     ./starship.nix
     ./fish.nix
     ./session-path.nix
@@ -20,6 +19,7 @@
     ./cursor.nix
     ./packages.nix
     ./spicetify.nix
+    ./waybar
   ];
 
   home.file.".config/hypr/hyprland.lua".source = ./hyprland/hyprland.lua;

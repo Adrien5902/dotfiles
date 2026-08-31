@@ -1,0 +1,6 @@
+{
+  format = "󰍜";
+  min-length = 4;
+  max-length = 4;
+  tooltip-format = "No command set";
+}
