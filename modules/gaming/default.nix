@@ -11,9 +11,6 @@
 
   environment.systemPackages = with pkgs; [
     heroic
-  ];
-
-  services.flatpak.packages = [
-    "org.vinegarhq.Sober"
+    pandora-launcher
   ];
 }

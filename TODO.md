@@ -7,7 +7,7 @@
 - [X] steam
 - [X] heroic
 - [X] sober
-- [ ] pandora launcher
+- [X] pandora launcher
 - [ ] minecraft nix servers
 
 ## Other
