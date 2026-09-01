@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   inputs,
   system,
@@ -61,9 +60,6 @@ in {
 
     keyd
 
-    pkg-config
-    dbus
-
     # Shell Customization
     # quickshell
     dunst
@@ -119,15 +115,6 @@ in {
     capabilities = "cap_net_admin+ep";
     owner = "root";
     group = "root";
-  };
-
-  environment.sessionVariables = {
-    PKG_CONFIG_PATH = lib.makeSearchPath "lib/pkgconfig" (
-      with pkgs;
-      [
-        dbus
-      ]
-    );
   };
 
   nixpkgs.config.allowUnfree = true;

@@ -27,6 +27,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    kdeconnect_waybar.url = "github:Adrien5902/kdeconnect_waybar";
   };
 
   outputs =

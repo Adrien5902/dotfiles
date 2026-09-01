@@ -37,7 +37,7 @@
 
 ## My apps
 - [ ] uhu
-- [ ] kdeconnect waybar
+- [X] kdeconnect waybar
 - [ ] mutex
 
 ## Zen
