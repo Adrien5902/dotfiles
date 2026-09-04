@@ -85,6 +85,7 @@ in {
     kitty
     thunar
     discord
+    gimp
 
     # Cli tools
     starship
