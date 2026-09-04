@@ -28,6 +28,7 @@
 - [ ] gtk theme
 - [ ] adb
 - [ ] qs notif daemon
+- [X] obsidian
 
 ## XDG
 - [ ] hyprland DP

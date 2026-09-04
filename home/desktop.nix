@@ -20,6 +20,7 @@
     ./packages.nix
     ./spicetify.nix
     ./waybar
+    ./obsididan.nix
   ];
 
   home.file.".config/hypr/hyprland.lua".source = ./hyprland/hyprland.lua;
