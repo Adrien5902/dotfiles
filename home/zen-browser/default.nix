@@ -97,7 +97,10 @@
           // space "Work" {
             icon = "📚";
             position = 400;
-            pins = pinList false [ (pin "ENT" "monlycee.net") ];
+            pins = pinList false [
+              (pin "ENT" "psn.monlycee.net")
+              (pin "Cahier de prépa" "cahier-de-prepa.fr/mp-charlemagne/")
+            ];
           }
           // space "Games" {
             icon = "🎮";
@@ -161,5 +164,3 @@
       };
   };
 }
-
-
