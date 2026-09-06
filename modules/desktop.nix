@@ -2,11 +2,13 @@
   pkgs,
   inputs,
   system,
+  lib,
   ...
 }:
-let  
-  waybar-weather-pkg = inputs.waybar-weather.packages.${system}.default;
-in {
+let
+  waybar-weather = inputs.waybar-weather.packages.${system}.default;
+in
+{
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -50,14 +52,6 @@ in {
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-    # Compilers
-    rustup
-    bun
-    opam
-    clang
-    llvmPackages.bintools
-    gnumake
-
     keyd
 
     # Shell Customization
@@ -69,12 +63,10 @@ in {
     slurp
 
     # TUI Apps
-    gitui
     playerctl
     ffmpeg
     bluetui
     # wlctl
-    neovim
     git
     fish
     fzf
@@ -96,23 +88,14 @@ in {
     jq
     wl-clipboard
     ripgrep
-    just
-    gh
     zip
     unzip
 
-    # LSPs
-    nil
-    biome
-    just-lsp
-
-    codex
-
-    waybar-weather-pkg
+    waybar-weather
   ];
 
   security.wrappers.waybar-weather = {
-    source = "${waybar-weather-pkg}/bin/waybar-weather";
+    source = "${waybar-weather}/bin/waybar-weather";
     capabilities = "cap_net_admin+ep";
     owner = "root";
     group = "root";
