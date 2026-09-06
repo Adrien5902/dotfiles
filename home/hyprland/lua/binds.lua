@@ -34,13 +34,13 @@ end
 
 hl.exec_cmd("notify-send" .. apps.editor.start_cmd)
 
--- Don't focus on browser and terminal
+-- Don't focus on these
 hl.bind(main_mod .. "Q", hl.dsp.exec_cmd(apps.terminal))
-hl.bind(main_mod .. "A", hl.dsp.exec_cmd(apps.browser))
+hl.bind(main_mod .. "E", hl.dsp.exec_cmd(apps.fileManager))
 
+bind_app_shortcut(main_mod .. "A", apps.browser)
 bind_app_shortcut(main_mod .. "S", apps.spotify)
 bind_app_shortcut(main_mod .. "D", apps.discord)
-bind_app_shortcut(main_mod .. "E", apps.fileManager)
 bind_app_shortcut(main_mod .. "V", apps.editor)
 bind_app_shortcut(main_mod .. "O", apps.notes)
 bind_app_shortcut(main_mod .. "SHIFT+A", "steam")
