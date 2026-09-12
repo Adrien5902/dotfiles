@@ -2,7 +2,6 @@
   pkgs,
   inputs,
   system,
-  lib,
   ...
 }:
 let
@@ -75,7 +74,6 @@ in
 
     # Apps
     kitty
-    thunar
     discord
     gimp
 
@@ -134,4 +132,14 @@ in
     withUWSM = true; # recommended for most users
     xwayland.enable = true; # Xwayland can be disabled.
   };
+
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs; [
+      thunar-vcs-plugin
+      thunar-archive-plugin
+    ];
+  };
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
 }
