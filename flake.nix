@@ -32,6 +32,10 @@
       url = "github:nix-community/fenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    cyber-icon-theme = {
+      url = "github:Adrien5902/cyber-icon-theme";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

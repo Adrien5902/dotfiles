@@ -20,6 +20,26 @@
         "type": "github"
       }
     },
+    "cyber-icon-theme": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789231223,
+        "narHash": "sha256-4X8RhZAzx7CzN4f8y5G1w3CWBp9qxtwgNoyaZx8YueA=",
+        "owner": "Adrien5902",
+        "repo": "cyber-icon-theme",
+        "rev": "3724e812c65f6150055a6ab5c1924986ac02097b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Adrien5902",
+        "repo": "cyber-icon-theme",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -162,6 +182,7 @@
     "root": {
       "inputs": {
         "adrien5902s-hyprcursors": "adrien5902s-hyprcursors",
+        "cyber-icon-theme": "cyber-icon-theme",
         "fenix": "fenix",
         "home-manager": "home-manager",
         "kdeconnect_waybar": "kdeconnect_waybar",

@@ -21,6 +21,7 @@
     ./spicetify.nix
     ./waybar
     ./obsididan.nix
+    ./gtk.nix
     ./hyprland.nix
   ];
 
