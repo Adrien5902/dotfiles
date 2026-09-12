@@ -1,8 +1,11 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }:
+let
+  fenix = inputs.fenix.packages.${pkgs.stdenv.hostPlatform.system};
+in
+{
   environment.systemPackages = with pkgs; [
     # Compilers
-    rustc
-    cargo
+    fenix.complete.toolchain
     bun
     opam
     clang
@@ -13,12 +16,12 @@
     just
     gitui
     gh
+    watchexec
 
     # LSPs
     nil
     biome
     just-lsp
-    rust-analyzer
 
     # AI
     codex
