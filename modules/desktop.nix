@@ -8,6 +8,8 @@ let
   waybar-weather = inputs.waybar-weather.packages.${system}.default;
 in
 {
+  imports = [ inputs.discord-mutex.nixosModules.default ];
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -142,4 +144,6 @@ in
   };
   services.gvfs.enable = true;
   services.tumbler.enable = true;
+
+  programs.discord-mutex.enable = true;
 }

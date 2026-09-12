@@ -242,6 +242,7 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tru
 hl.bind("Pause", hl.dsp.exec_cmd("playerctl play-pause"))
 
 -- Mutex
+hl.bind(main_mod .. "CTRL + SHIFT + H", hl.dsp.exec_cmd("mutex join 1440803746564149475"))
 hl.bind(main_mod .. "CTRL + SHIFT + S", hl.dsp.exec_cmd("mutex set mute toggle"))
 hl.bind(main_mod .. "CTRL + SHIFT + D", hl.dsp.exec_cmd("mutex set deaf toggle"))
 hl.bind(main_mod .. "CTRL + SHIFT + L", hl.dsp.exec_cmd("mutex leave"))

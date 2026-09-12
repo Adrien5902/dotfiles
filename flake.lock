@@ -40,6 +40,26 @@
         "type": "github"
       }
     },
+    "discord-mutex": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789233892,
+        "narHash": "sha256-HEaidevdeuG6Xw1n7aBniQwJtwsavxOEnz3edA8AcGk=",
+        "owner": "Adrien5902",
+        "repo": "discord-mutex",
+        "rev": "3fecd2825e0b1500e402aaeb2c17d70c41bb4f73",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Adrien5902",
+        "repo": "discord-mutex",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -183,6 +203,7 @@
       "inputs": {
         "adrien5902s-hyprcursors": "adrien5902s-hyprcursors",
         "cyber-icon-theme": "cyber-icon-theme",
+        "discord-mutex": "discord-mutex",
         "fenix": "fenix",
         "home-manager": "home-manager",
         "kdeconnect_waybar": "kdeconnect_waybar",

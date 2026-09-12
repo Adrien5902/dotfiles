@@ -36,6 +36,10 @@
       url = "github:Adrien5902/cyber-icon-theme";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    discord-mutex = {
+      url = "github:Adrien5902/discord-mutex";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

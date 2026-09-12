@@ -39,7 +39,7 @@
 ## My apps
 - [ ] uhu
 - [X] kdeconnect waybar
-- [ ] mutex
+- [X] mutex
 
 ## Zen
 - [X] enable
