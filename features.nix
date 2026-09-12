@@ -48,7 +48,7 @@ rec {
         dev
       ];
       module = ./modules/dev.nix;
-      home = ./home/dev.nix;
+      home = ./home/dev;
     };
 
     gaming = feature {

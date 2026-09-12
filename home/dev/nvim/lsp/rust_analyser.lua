@@ -16,6 +16,9 @@ npairs.add_rule(Rule("|","|","rust"))
 vim.lsp.config('rust_analyzer', {
 	settings = {
 		['rust-analyzer'] = {
+			cargo = {
+				allFeatures = true,
+			},
 			diagnostics = {
 				enable = false,
 			}
