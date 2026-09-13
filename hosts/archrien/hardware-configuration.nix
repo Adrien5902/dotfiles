@@ -73,4 +73,6 @@
     open = false;
     nvidiaSettings = true;
   };
+
+  hardware.bluetooth.enable = true;
 }
