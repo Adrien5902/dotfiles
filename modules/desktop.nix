@@ -90,6 +90,7 @@ in
     ripgrep
     zip
     unzip
+    libnotify
 
     waybar-weather
   ];
