@@ -11,6 +11,7 @@
 - [ ] minecraft nix servers
 
 ## Other
+- [ ] xdg (mostly done)
 - [ ] hyprland (although i plan on keeping lua there's still things to configure)
 - [X] wallpapers
 - [ ] nvim (lazy -> nix)

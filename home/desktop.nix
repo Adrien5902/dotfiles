@@ -1,7 +1,4 @@
-{
-  inputs,
-  ...
-}:
+{ inputs, ... }:
 {
   home.username = "adrien";
   home.stateVersion = "26.05";
@@ -23,6 +20,7 @@
     ./obsididan.nix
     ./gtk.nix
     ./hyprland.nix
+    ./xdg/portal.nix
   ];
 
   home.file.".local/bin".source = ./scripts;
