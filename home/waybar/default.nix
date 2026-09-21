@@ -36,8 +36,8 @@ in
     settings.configs = [
       {
         update_interval_secs = 1;
-        format = "{DeviceInfo::DeviceTypeText}         {Battery::ChargePercent}% {Battery::ChargeTexts}";
-        device_not_found_text = "x(            404  ";
+        format = "  {DeviceInfo::DeviceTypeText}     {Battery::ChargePercent}% {Battery::ChargeTexts} ";
+        device_not_found_text = "x(       404  ";
         device_not_found_tooltip_text = "Device not found make sure kdeconnect is running and phone is connected";
         device_phone_text = "";
         device_tablet_text = "";
