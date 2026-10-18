@@ -92,6 +92,7 @@
             position = 500;
             pins = pinList false [
               (pin "Instagram" "instagram.com")
+              (pin "Nixpkgs" "search.nixos.org/packages")
             ];
           }
           // space "Work" {
@@ -100,6 +101,7 @@
             pins = pinList false [
               (pin "ENT" "psn.monlycee.net")
               (pin "Cahier de prépa" "cahier-de-prepa.fr/mp-charlemagne/")
+              (pin "My Student Folder" "drive.google.com/drive/folders/13zwDuMoajCwYgzxnrLxGYtyHeUeVL7a5")
             ];
           }
           // space "Games" {
