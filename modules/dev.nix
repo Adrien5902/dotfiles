@@ -7,7 +7,6 @@ in
     # Compilers
     fenix.complete.toolchain
     bun
-    opam
     clang
     llvmPackages.bintools
     gnumake
@@ -17,6 +16,11 @@ in
     gitui
     gh
     watchexec
+
+    ocaml
+    ocamlPackages.ocaml-lsp
+    ocamlPackages.utop
+    ocamlformat
 
     # LSPs
     nil

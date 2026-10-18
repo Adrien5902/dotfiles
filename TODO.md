@@ -54,9 +54,8 @@
 - [ ] proton vpn
 - [ ] steam db
 
-# Dev
-- [ ] opam
-- [ ] rust
+# Dev envs
+- [X] ocaml
 - [ ] lua
 - [ ] js/ts bun biome
 
