@@ -163,8 +163,3 @@ hl.layer_rule({
 	match = { namespace = "waybar" },
 	order = -1,
 })
-
-hl.window_rule({
-	match = { fullscreen = true },
-	idle_inhibit = "focus"
-})
