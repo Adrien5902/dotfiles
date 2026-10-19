@@ -32,7 +32,7 @@ local function bind_app_shortcut(shortcut, app)
 	end)
 end
 
-hl.exec_cmd("notify-send" .. apps.editor.start_cmd)
+hl.bind(main_mod .. "SHIFT+W", hl.dsp.exec_cmd("dunstctl close-all"))
 
 -- Don't focus on these
 hl.bind(main_mod .. "Q", hl.dsp.exec_cmd(apps.terminal))
