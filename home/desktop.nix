@@ -4,7 +4,7 @@
   home.stateVersion = "26.05";
   imports = [
     inputs.zen-browser.homeModules.beta
-    ./kitty.nix
+    ./ghostty.nix
     ./rofi.nix
     ./starship.nix
     ./fish.nix

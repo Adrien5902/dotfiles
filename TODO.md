@@ -19,7 +19,7 @@
 - [ ] waybar (mostly done)
 - [X] starship
 - [ ] rofi
-- [ ] kitty/ghosty
+- [X] ghostty
 - [X] fish
 - [X] git
 - [X] gh

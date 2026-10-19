@@ -42,10 +42,13 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.adrien = {
     isNormalUser = true;
+    shell = pkgs.fish;
+    useDefaultShell = true;
+    ignoreShellProgramCheck = true; # Defined with home manager
     extraGroups = [
-      "wheel"
+      "wheel" # Enable ‘sudo’ for the user.
       "networkmanager"
-    ]; # Enable ‘sudo’ for the user.
+    ];
   };
 
   programs.kdeconnect.enable = true;
@@ -75,7 +78,6 @@ in
     # nvtop
 
     # Apps
-    kitty
     discord
     gimp
 

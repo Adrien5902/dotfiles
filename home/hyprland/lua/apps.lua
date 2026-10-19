@@ -6,7 +6,7 @@ require("lua.hostname")
 
 local function tui(name)
 	return {
-		start_cmd = "kitty  -e " .. name,
+		start_cmd = "ghostty -e " .. name,
 		selector = "title:" .. name,
 		table_selector = {
 			title = name
@@ -25,7 +25,7 @@ local spotify = {
 -- Set programs that you use
 return {
 	-- Apps
-	terminal = "kitty",
+	terminal = "ghostty",
 	fileManager = "thunar",
 	browser = "zen-beta",
 	discord = "discord",
