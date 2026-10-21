@@ -40,6 +40,7 @@
       url = "github:Adrien5902/discord-mutex";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    parsecgaming.url = "github:DarthPJB/parsec-gaming-nix";
   };
 
   outputs =

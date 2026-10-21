@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   programs.steam = {
     enable = true;
@@ -10,7 +10,9 @@
   };
 
   environment.systemPackages = with pkgs; [
+    satisfactorymodmanager
     heroic
     pandora-launcher
+    inputs.parsecgaming.packages.x86_64-linux.parsecgaming
   ];
 }
