@@ -8,8 +8,6 @@ let
     {
       inherit tags module home;
     };
-in
-rec {
   hasTags = required: tags: builtins.all (tag: builtins.elem tag tags) required;
   enabledFeatures =
     tags:
@@ -81,4 +79,7 @@ rec {
       module = ./modules/gaming/roblox.nix;
     };
   };
+in
+{
+  inherit hasTags features tags enabledFeatures;
 }
