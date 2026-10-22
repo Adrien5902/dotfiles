@@ -74,7 +74,7 @@ in
     git
     fish
     fzf
-    htop
+    (htop.override { withVimKeys = true; })
     # nvtop
 
     # Apps
