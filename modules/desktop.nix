@@ -93,6 +93,7 @@ in
     zip
     unzip
     libnotify
+    tldr
 
     waybar-weather
   ];
