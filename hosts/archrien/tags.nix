@@ -1,4 +1,5 @@
 [
+  "has-gpu"
   "desktop"
   "dev"
   "gaming"

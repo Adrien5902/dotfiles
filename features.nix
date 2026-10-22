@@ -27,6 +27,7 @@ let
     );
 
   tags = mkTags [
+    "has-gpu"
     "desktop"
     "dev"
     "flatpak"
@@ -78,8 +79,21 @@ let
       ];
       module = ./modules/gaming/roblox.nix;
     };
+
+    gpu-usage-waybar = feature {
+      tags = with tags; [
+        desktop
+        has-gpu
+      ];
+      home = ./home/waybar/gpu-usage.nix;
+    };
   };
 in
 {
-  inherit hasTags features tags enabledFeatures;
+  inherit
+    hasTags
+    features
+    tags
+    enabledFeatures
+    ;
 }
