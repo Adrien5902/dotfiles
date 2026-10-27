@@ -5,6 +5,7 @@ vim.lsp.config("*", {
 })
 
 vim.lsp.enable({
+	"jedi_language_server",
 	"nil_ls",
 	"crates",
 	"jsonls",
