@@ -9,6 +9,10 @@
     ];
   };
 
+  environment.sessionVariables = {
+  	__GL_THREADED_OPTIMIZATIONS = 0;
+  };
+
   environment.systemPackages = with pkgs; [
     satisfactorymodmanager
     heroic
