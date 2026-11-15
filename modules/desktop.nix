@@ -65,6 +65,7 @@ in
     # clipvault
     grim
     slurp
+    inputs.clipvault.packages.${system}.default
 
     # TUI Apps
     playerctl
@@ -94,6 +95,7 @@ in
     unzip
     libnotify
     tldr
+    tesseract
 
     waybar-weather
   ];

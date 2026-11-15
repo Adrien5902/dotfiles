@@ -41,6 +41,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     parsecgaming.url = "github:DarthPJB/parsec-gaming-nix";
+    clipvault.url = "github:Rolv-Apneseth/clipvault";
   };
 
   outputs =
