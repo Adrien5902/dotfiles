@@ -21,7 +21,7 @@ local function update_vertical_monitor(is_vertical)
 		hl.monitor({
 			output = "HDMI-A-2",
 			mode = "1920x1080@144",
-			position = "-1920x-800",
+			position = "auto-left",
 			scale = 1,
 			transform = 0,
 		})
