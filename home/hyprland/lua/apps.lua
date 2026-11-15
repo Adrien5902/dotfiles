@@ -4,9 +4,11 @@ require("lua.hostname")
 ------ MY PROGRAMS ------
 -------------------------
 
+local terminal = "ghostty"
+
 local function tui(name)
 	return {
-		start_cmd = "ghostty -e " .. name,
+		start_cmd = terminal .. " -e " .. name,
 		selector = "title:" .. name,
 		table_selector = {
 			title = name
@@ -22,15 +24,23 @@ local spotify = {
 	}
 }
 
+local obsidian = {
+	start_cmd = "obsidian",
+	selector = "class:md.obsidian.Obsidian",
+	table_selector = {
+		class = "md.obsidian.Obsidian",
+	},
+}
+
 -- Set programs that you use
 return {
 	-- Apps
-	terminal = "ghostty",
+	terminal = terminal,
 	fileManager = "thunar",
 	browser = "zen-beta",
 	discord = "discord",
 	spotify = spotify,
-	notes = "obsidian",
+	notes = obsidian,
 	editor = tui(os.getenv("EDITOR") or "nvim"),
 
 	-- Paths
