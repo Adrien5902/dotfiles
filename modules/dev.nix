@@ -7,7 +7,6 @@ in
     # Editor & Tools
     neovim
     codex
-    gitui
     gh
     watchexec
     just-lsp
