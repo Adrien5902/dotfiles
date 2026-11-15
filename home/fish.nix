@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ hostname, ... }: {
   programs.fish = {
     enable = true;
 
@@ -15,8 +14,8 @@
       wlc = "wl-copy";
       suuu = "sudo -Es fish";
       nixd = "nix develop --command fish";
-      nixbu = "sudo nixos-rebuild switch --flake /etc/nixos#unowhynotarch";
-      nixba = "sudo nixos-rebuild switch --flake /etc/nixos#archrien";
+      nixb = "sudo nixos-rebuild switch --flake /etc/nixos#${hostname}";
+      nixe = "cd /etc/nixos; $EDITOR .; sudo git add .; sudo git commit -m 'Edit : $(date)'; nixb";
     };
 
     shellInit = ''
@@ -36,4 +35,3 @@
   };
 
 }
-
