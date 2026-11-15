@@ -4,30 +4,38 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    # Compilers
+    # Editor & Tools
+    neovim
+    codex
+    gitui
+    gh
+    watchexec
+    just-lsp
+    just
+
+    # Rust
     fenix.complete.toolchain
-    bun
+
+    # C
     clang
     llvmPackages.bintools
     gnumake
 
-    neovim
-    just
-    gitui
-    gh
-    watchexec
-
+    # Ocaml
     ocaml
     ocamlPackages.ocaml-lsp
     ocamlPackages.utop
     ocamlformat
 
-    # LSPs
-    nil
-    biome
-    just-lsp
+    # Lua
+    lua-language-server
 
-    # AI
-    codex
+    # Nix
+    nil
+
+    # Web
+    biome
+    nodejs
+    bun
   ];
 }
