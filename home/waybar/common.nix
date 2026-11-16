@@ -13,7 +13,7 @@
   layer = "top";
   height = 50;
   width = 0;
-  margin = 0;
+  margin = "0";
   spacing = 0;
   mode = "dock";
   reload_style_on_change = true;
