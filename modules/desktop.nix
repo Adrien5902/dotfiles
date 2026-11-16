@@ -96,7 +96,6 @@ in
     libnotify
     tldr
     tesseract
-
     waybar-weather
   ];
 
