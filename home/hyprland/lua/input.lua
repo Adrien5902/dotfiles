@@ -1,3 +1,5 @@
+require("lua.hostname")
+
 ---------------
 ---- INPUT ----
 ---------------
@@ -16,7 +18,8 @@ hl.config({
 		touchpad     = {
 			natural_scroll = true,
 		},
-		numlock_by_default = true,
+
+		numlock_by_default = hostname ~= "unowhynotarch",
 	},
 })
 
