@@ -33,6 +33,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			end
 		end
 
+		if client and client.server_capabilities.inlayHintProvider then
+			vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+		end
+
 		if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
 			local highlight_augroup = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
 

@@ -45,3 +45,8 @@ vim.keymap.set("n", "<leader>ct", to_case("title_case"))
 vim.keymap.set("n", "<leader>cc", to_case("camel_case"))
 vim.keymap.set("n", "<leader>cu", to_case("upper_case"))
 vim.keymap.set("n", "<leader>cl", to_case("lower_case"))
+
+vim.keymap.set("n", "<leader>i", function()
+	local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+	vim.lsp.inlay_hint.enable(not enabled, { bufnr = 0 })
+end)
