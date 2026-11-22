@@ -12,23 +12,23 @@
 
 ## Other
 - [ ] xdg (mostly done)
-- [ ] hyprland (although i plan on keeping lua there's still things to configure)
+- [X] hyprland (although i plan on keeping lua there's still things to configure)
 - [X] wallpapers
 - [ ] nvim (lazy -> nix)
-- [X] spotify with spicetify
-- [ ] waybar (mostly done)
+- [X] spotify with spicetify (adding the possiblity of changing color_scheme would be cool)
+- [ ] waybar (mostly done, only small fixes required)
 - [X] starship
-- [ ] rofi
+- [ ] rofi (change current theme)
 - [X] ghostty
 - [X] fish
 - [X] git
 - [X] gh
 - [X] keyd
 - [X] grim slurp
-- [ ] thunar
-- [ ] gtk theme
-- [ ] adb
-- [ ] qs notif daemon
+- [X] clipvault
+- [ ] thunar (see laptop)
+- [ ] gtk theme (somewhat done see [cyber-icon-theme](https://github.com/Adrien5902/cyber-icon-theme))
+- [ ] qs or eww notif daemon (tired of dunst honestly)
 - [X] obsidian
 
 ## XDG
@@ -38,7 +38,6 @@
 - [X] cursor
 
 ## My apps
-- [ ] uhu
 - [X] kdeconnect waybar
 - [X] mutex
 
@@ -48,7 +47,7 @@
 ### Extensions
 - [X] uBlock
 - [ ] vimium
-- [ ] 2FA
+- [ ] 2FA password manager
 - [X] dark reader
 - [X] zen internet
 - [ ] proton vpn
@@ -56,8 +55,11 @@
 
 # Dev envs
 - [X] ocaml
-- [ ] lua
-- [ ] js/ts bun biome
+- [X] rust
+- [X] lua
+- [X] js/ts bun biome
+- [ ] mcfunction
+- [ ] java
 
 # Notes
 
